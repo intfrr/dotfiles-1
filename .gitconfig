@@ -1,3 +1,5 @@
 [user]
 	name = Al Johri
 	email = al.johri@gmail.com
+[push]
+	default = simple
