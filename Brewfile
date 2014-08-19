@@ -14,3 +14,11 @@ install tree
 install vim
 install bash
 install zsh
+install git
+install rsync
+install ack
+install apple-gcc42
+install colordiff
+install gfortran
+install sqlite
+install redis

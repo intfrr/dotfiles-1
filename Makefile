@@ -1,10 +1,12 @@
-all: brew vim 
-
-brew:
+setup-brew:
 	@echo "Brew Bundle"
 	@echo "-----------"
 	brew bundle
 
-vim:
-	@echo "Symlink .vim folder to ~/.vim"
-	ln -hi -s `pwd`/.vim ~/.vim
+setup-vim:
+	@echo "Symlink .vimrc to ~/.vimrc"
+	ln -hi -s `pwd`/.vimrc ~/.vimrc
+
+setup-git:
+	@echo "Symlink .gitconfig to ~/.gitconfig"
+	ln -hi -s `pwd`/.gitconfig ~/.gitconfig
