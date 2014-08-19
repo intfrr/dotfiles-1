@@ -24,6 +24,10 @@ install sqlite
 install redis
 install node
 
+# for matplotlib
+install freetype
+install libpng
+
 cask install google-chrome-beta
 cask install iterm2-beta
 cask isntall mou
