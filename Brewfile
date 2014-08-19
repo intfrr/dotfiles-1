@@ -19,6 +19,6 @@ install rsync
 install ack
 install apple-gcc42
 install colordiff
-install gfortran
+install gcc
 install sqlite
 install redis
