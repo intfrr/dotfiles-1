@@ -22,3 +22,10 @@ install colordiff
 install gcc
 install sqlite
 install redis
+
+cask install google-chrome-beta
+cask install iterm2-beta
+cask isntall mou
+cask isntall slack
+cask install spotify
+cask install sublime-text3
