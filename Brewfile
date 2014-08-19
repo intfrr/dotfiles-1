@@ -22,6 +22,7 @@ install colordiff
 install gcc
 install sqlite
 install redis
+install node
 
 cask install google-chrome-beta
 cask install iterm2-beta
