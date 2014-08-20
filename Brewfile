@@ -2,15 +2,17 @@ update
 
 tap homebrew/dupes
 tap homebrew/versions
+tap homebrew/homebrew-science
 tap homebrew/homebrew-php
+
 
 # Languages and Compilers
 install php55
-install pyenv
-install pyenv-virtualenvwrapper
-install rbenv
-install ruby-build
+install pyenv pyenv-virtualenvwrapper
+install rbenv ruby-build
 install node
+install r # echo 'disable r' >> ~/.zshrc; http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
+install go
 install gcc
 install apple-gcc42
 
@@ -19,6 +21,9 @@ install mysql
 install postgresql
 install sqlite
 install redis
+install rabbitmq
+install rabbitmq-c
+
 
 # Shells
 install bash
@@ -34,6 +39,7 @@ install ack
 install colordiff
 
 # Libraries
+install openssl
 install libxml2
 install libxslt
 install imagemagick
@@ -54,6 +60,7 @@ cask install heroku-toolbelt
 cask install virtualbox
 cask install vagrant
 cask install sequel-pro
+cask install rstudio
 
 # Browsers
 cask install google-chrome-beta
