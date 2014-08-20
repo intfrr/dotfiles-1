@@ -65,9 +65,21 @@ cask install sequel-pro
 cask install rstudio # launchctl setenv RSTUDIO_WHICH_R `which r`
 cask install weka
 
+# Mockup Tools
+cask install balsamiq-mockups
+
 # Browsers
 cask install google-chrome-beta
 cask install firefox-beta
+
+# Torrent
+cask install transmission
+
+# Convert Computer to AirServer
+cask install airserver
+
+# Arduino
+cask install arduino
 
 # Cloud Storage
 cask install insync
@@ -87,6 +99,9 @@ cask install licecap
 # IRC
 cask install colloquy
 
+# Android
+cask install android-file-transfer
+
 # Markdown Editor
 cask isntall mou
 
@@ -104,6 +119,9 @@ cask install karabiner
 
 # Taskbar Icon to Prevent Computer From Falling Alseep
 cask install caffeine
+
+# Clears up menu bar apps
+cask install bartender
 
 # Replacement for Mac Spotlight
 cask install alfred
