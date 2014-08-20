@@ -53,6 +53,7 @@ cask install sublime-text3
 cask install heroku-toolbelt
 cask install virtualbox
 cask install vagrant
+cask install sequel-pro
 
 # Browsers
 cask install google-chrome-beta
