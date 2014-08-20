@@ -34,3 +34,4 @@ cask isntall mou
 cask isntall slack
 cask install spotify
 cask install sublime-text3
+cask install colloquy
