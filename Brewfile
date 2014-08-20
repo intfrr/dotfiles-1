@@ -53,14 +53,17 @@ BREW CASK
 install brew-cask
 tap caskroom/versions
 
-# Developer Tools
+# Development Tools
 cask install iterm2-beta
 cask install sublime-text3
 cask install heroku-toolbelt
 cask install virtualbox
 cask install vagrant
 cask install sequel-pro
+
+# Data Science Tools
 cask install rstudio # launchctl setenv RSTUDIO_WHICH_R `which r`
+cask install weka
 
 # Browsers
 cask install google-chrome-beta
