@@ -1,6 +1,5 @@
 update
 
-install brew-cask
 install libxml2
 install libxslt
 install mysql
@@ -30,22 +29,59 @@ install imagemagick
 install freetype
 install libpng
 
-# Essential
+########################################################
+BREW CASK
+########################################################
+
+install brew-cask
+
+# Developer Tools
+cask install iterm2-beta
+cask install sublime-text3
+cask install heroku-toolbelt
+cask install virtualbox
+
+# Browsers
 cask install google-chrome-beta
 cask install firefox-beta
-cask install google-hangouts
-cask install heroku-toolbelt
+
+# Cloud Storage
 cask install insync
-cask install iterm2-beta
-cask isntall mou
-cask install spotify
-cask install sublime-text3
-cask install colloquy
+cask install dropbox
+
+# Video Chat
+cask install skype
+cask install google-hangouts
+
+# Group Chat
+cask install slack
+cask install hipchat
+
+# Record GIFs
 cask install licecap
-cask install karabiner
+
+# IRC
+cask install colloquy
+
+# Markdown Editor
+cask isntall mou
+
+# Music Player
+cask install spotify
+
+# Video Player
 cask install vlc
+
+# Audio Recorder
+cask install audacity
+
+# Customize Mac Keyboard Settings (i.e. key repeat)
+cask install karabiner
+
+# Taskbar Icon to Prevent Computer From Falling Alseep
 cask install caffeine
 
+# Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
 cask install qlcolorcode 
 cask install qlstephen 
@@ -58,9 +94,3 @@ cask install webp-quicklook
 cask install suspicious-package
 cask install provisionql
 cask install cert-quicklook
-
-cask isntall slack
-cask install hipchat
-
-cask install skype
-cask install audacity
