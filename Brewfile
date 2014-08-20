@@ -56,6 +56,8 @@ cask install quicklook-csv
 cask install betterzipql
 cask install webp-quicklook
 cask install suspicious-package
+cask install provisionql
+cask install cert-quicklook
 
 cask isntall slack
 cask install hipchat
