@@ -24,6 +24,8 @@ install sqlite
 install redis
 install node
 
+install imagemagick
+
 # for matplotlib
 install freetype
 install libpng
