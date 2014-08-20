@@ -38,3 +38,4 @@ cask install spotify
 cask install sublime-text3
 cask install colloquy
 cask install licecap
+cask install karabiner
