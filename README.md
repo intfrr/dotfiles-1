@@ -49,3 +49,5 @@ from https://github.com/thoughtbot/laptop/blob/2aa635f0e3ff8e0d2ac30c08879ddec64
 /usr/libexec/PlistBuddy -c "print :MVChatBookmarks:1:server" ~/Library/Preferences/info.colloquy.plist
 # irc.rizon.net
 ```
+
+check it later https://github.com/thejameskyle/favorite-software
