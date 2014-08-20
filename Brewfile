@@ -11,7 +11,7 @@ install php55
 install pyenv pyenv-virtualenvwrapper
 install rbenv ruby-build
 install node
-install r # echo 'disable r' >> ~/.zshrc; http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
+install r # echo 'disable r' >> ~/.zshrc;
 install go
 install gcc
 install apple-gcc42
@@ -60,7 +60,7 @@ cask install heroku-toolbelt
 cask install virtualbox
 cask install vagrant
 cask install sequel-pro
-cask install rstudio
+cask install rstudio # launchctl setenv RSTUDIO_WHICH_R `which r`
 
 # Browsers
 cask install google-chrome-beta
