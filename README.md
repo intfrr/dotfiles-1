@@ -1,11 +1,6 @@
 ```
+xcode-select --install
 make
-```
-
-
-```
-brew tap homebrew/dupes
-brew tap caskroom/versions
 ```
 
 ```
