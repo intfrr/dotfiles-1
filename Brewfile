@@ -158,4 +158,6 @@ cask install suspicious-package
 cask install provisionql
 cask install cert-quicklook
 
+cask install java
+
 cleanup
