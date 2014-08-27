@@ -19,6 +19,7 @@ https://github.com/robbyrussell/oh-my-zsh
 http://unix.stackexchange.com/questions/3428/share-aliases-and-path-setting-between-zsh-and-bash
 check it later https://github.com/thejameskyle/favorite-software
 http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
+http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_s_too_good_for_pip_or_easy_install_.html
 ```
 
 ```
