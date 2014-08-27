@@ -18,6 +18,7 @@ https://github.com/AlJohri/bash-it/tree/theme-ohmyzsh
 https://github.com/robbyrussell/oh-my-zsh
 http://unix.stackexchange.com/questions/3428/share-aliases-and-path-setting-between-zsh-and-bash
 check it later https://github.com/thejameskyle/favorite-software
+http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
 ```
 
 ```
