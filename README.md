@@ -1,5 +1,7 @@
 ```
 xcode-select --install
+# https://github.com/Homebrew/homebrew/issues/23074
+download Xcode 5.0.1 for some cmake stuff
 make
 ```
 
