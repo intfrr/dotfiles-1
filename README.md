@@ -10,6 +10,7 @@ brew bundle
 ```
 
 ```
+http://stackoverflow.com/a/15948723/1106919 # PIP CACHE
 https://github.com/mathiasbynens/dotfiles/blob/master/Brewfile#L39
 https://github.com/kevinSuttle/laptop/blob/master/mac-components/node
 https://github.com/kevinSuttle/laptop/blob/master/mac-components/Brewfile-casks
