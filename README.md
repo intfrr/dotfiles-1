@@ -6,6 +6,10 @@ make
 ```
 
 ```
+export R_HOME="/usr/local/Cellar/r/3.1.0/R.framework/Resources"
+```
+
+```
 echo 'install ruby' > Brewfile-ruby
 echo 'bundle Brewfile-ruby' > Brewfile
 brew bundle
