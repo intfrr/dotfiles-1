@@ -10,6 +10,12 @@ export R_HOME="/usr/local/Cellar/r/3.1.0/R.framework/Resources"
 ```
 
 ```
+env LDFLAGS="-L/usr/local/Cellar/r/3.1.0/R.framework/Versions/3.1/Resources/lib" pip install rpy2
+http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
+https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
+```
+
+```
 echo 'install ruby' > Brewfile-ruby
 echo 'bundle Brewfile-ruby' > Brewfile
 brew bundle
