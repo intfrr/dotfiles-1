@@ -13,6 +13,9 @@ export R_HOME="/usr/local/Cellar/r/3.1.0/R.framework/Resources"
 env LDFLAGS="-L/usr/local/Cellar/r/3.1.0/R.framework/Versions/3.1/Resources/lib" pip install rpy2
 http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
 https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
+echo setenv RSTUDIO_WHICH_R /usr/local/bin/r | launchctl
+export RSTUDIO_WHICH_R=/usr/local/bin/r
+https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
 ```
 
 ```
