@@ -120,6 +120,9 @@ cask isntall mou
 # Music Player
 cask install spotify
 
+# File Upload
+cask install cloud
+
 # Video Player
 cask install vlc
 
