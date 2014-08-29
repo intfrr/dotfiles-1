@@ -2,20 +2,18 @@
 xcode-select --install
 # https://github.com/Homebrew/homebrew/issues/23074
 download Xcode 5.0.1 for some cmake stuff
-make
 ```
 
 ```
-export R_HOME="/usr/local/Cellar/r/3.1.0/R.framework/Resources"
-```
+disable r; 'disable r' >> ~/.zshrc;
+export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
+env LDFLAGS=-L$R_HOME/lib pip install rpy2
+echo setenv RSTUDIO_WHICH_R `which r` | launchctl
+export RSTUDIO_WHICH_R=`which r`
 
-```
-env LDFLAGS="-L/usr/local/Cellar/r/3.1.0/R.framework/Versions/3.1/Resources/lib" pip install rpy2
-http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
-https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
-echo setenv RSTUDIO_WHICH_R /usr/local/bin/r | launchctl
-export RSTUDIO_WHICH_R=/usr/local/bin/r
-https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
+# http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
+# https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
+# https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
 ```
 
 ```
