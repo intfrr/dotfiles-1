@@ -1,12 +1,16 @@
 update
 upgrade
-install brew-cask
 
 tap homebrew/dupes
 tap homebrew/versions
 tap homebrew/homebrew-science
 tap homebrew/homebrew-php
+tap caskroom/cask
 tap caskroom/versions
+tap caskroom/fonts
+tap thoughtbot/formulae
+
+install brew-cask
 
 cask install xquartz
 
@@ -21,6 +25,8 @@ install screen
 install ack
 install lynx
 install rename
+install watch
+install md5sha1sum
 
 # Languages and Compilers
 install php55 --with-gmp --with-pgsql --with-phpdbg --with-homebrew-openssl --with-homebrew-libxslt --with-homebrew-curl
@@ -54,7 +60,7 @@ install zsh --disable-etcdir
 # Command Line Tools
 install the_silver_searcher
 install tree
-install vim --override-system-vi
+install vim --override-system-vi --with-client-server
 install svn
 install git --with-pcre --with-brewed-curl --with-brewed-openssl --with-brewed-svn --with-gettext
 install rsync

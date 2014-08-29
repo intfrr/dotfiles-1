@@ -1,20 +1,29 @@
 ```
 xcode-select --install
 # https://github.com/Homebrew/homebrew/issues/23074
-download Xcode 5.0.1 for some cmake stuff
+# download Xcode 5.0.1 for some cmake stuff
+sudo xcodebuild -license # after downloading xcode
 ```
+
+https://github.com/thoughtbot/dotfiles
+https://github.com/kevinSuttle/laptop
+https://github.com/croaky/dotfiles/blob/master/laptop.local
+http://robots.thoughtbot.com/keeping-a-github-fork-updated
 
 ```
 disable r; 'disable r' >> ~/.zshrc;
 export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
 env LDFLAGS=-L$R_HOME/lib pip install rpy2
-echo setenv RSTUDIO_WHICH_R `which r` | launchctl
-export RSTUDIO_WHICH_R=`which r`
+echo setenv RSTUDIO_WHICH_R $(brew --prefix r) | launchctl
+export RSTUDIO_WHICH_R=$(brew --prefix r)
 
 # http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
 # https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
 # https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
 ```
+
+https://github.com/bling/vim-airline
+https://github.com/Lokaltog/powerline
 
 ```
 echo 'install ruby' > Brewfile-ruby
