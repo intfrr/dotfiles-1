@@ -22,6 +22,11 @@ export RSTUDIO_WHICH_R=$(brew --prefix r)
 # https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
 ```
 
+Vagrant https://github.com/dotless-de/vagrant-vbguest
+```
+vagrant plugin install vagrant-vbguest
+```
+
 https://github.com/bling/vim-airline
 https://github.com/Lokaltog/powerline
 
