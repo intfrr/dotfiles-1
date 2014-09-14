@@ -1,4 +1,9 @@
 ```
+# sublime enable vertical select via keyboard on osx
+# http://stackoverflow.com/a/18957047/1667241
+```
+
+```
 xcode-select --install
 # https://github.com/Homebrew/homebrew/issues/23074
 # download Xcode 5.0.1 for some cmake stuff
