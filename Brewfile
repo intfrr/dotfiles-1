@@ -10,92 +10,92 @@ tap caskroom/versions
 tap caskroom/fonts
 tap thoughtbot/formulae
 
-install brew-cask
+install caskroom/cask/brew-cask
 
 cask install xquartz
 
-install coreutils
-install moreutils
-install findutils --default-names
-install gnu-sed --default-names
-install wget --enable-iri
-install pcre
-install grep --default-names
-install screen
-install ack
-install lynx
-install rename
-install watch
-install md5sha1sum
+reinstall coreutils
+reinstall moreutils
+reinstall findutils --default-names
+reinstall gnu-sed --default-names
+reinstall wget --enable-iri
+reinstall pcre
+reinstall grep --default-names
+reinstall screen
+reinstall ack
+reinstall lynx
+reinstall rename
+reinstall watch
+reinstall md5sha1sum
 
 # Languages and Compilers
-install php55 --with-gmp --with-pgsql --with-phpdbg --with-homebrew-openssl --with-homebrew-libxslt --with-homebrew-curl
-install pyenv pyenv-virtualenvwrapper
-install rbenv ruby-build
-install node
-install r --with-openblas
-install go --cross-compile-all
-install ghc
-install lua --with-completion
-install gcc --with-all-languages
-install apple-gcc42
+reinstall php55 --with-gmp --with-pgsql --with-phpdbg --with-homebrew-openssl --with-homebrew-libxslt --with-homebrew-curl
+reinstall pyenv pyenv-virtualenvwrapper
+reinstall rbenv ruby-build
+reinstall node
+reinstall r --with-openblas
+reinstall go --cross-compile-all
+reinstall ghc
+reinstall lua --with-completion
+reinstall gcc --with-all-languages
+reinstall apple-gcc42
 
 # Databases
-install mysql --enable-memcached
-install postgresql --with-python
-install sqlite --with-functions
-install mongodb --with-openssl
-install redis
-install elasticsearch
-install memcached
-install rabbitmq
-install rabbitmq-c
-install solr
+reinstall mysql --enable-memcached
+reinstall postgresql --with-python
+reinstall sqlite --with-functions
+reinstall mongodb --with-openssl
+reinstall redis
+reinstall elasticsearch
+reinstall memcached
+reinstall rabbitmq
+reinstall rabbitmq-c
+reinstall solr
 
-services start mysql
-services start postgresql
-services start mongodb
-services start redis
-services start elasticsearch
-services start memcached
-services start rabbitmq
+services restart mysql
+services restart postgresql
+services restart mongodb
+services restart redis
+services restart elasticsearch
+services restart memcached
+services restart rabbitmq
 
 # Misc
-install jack
-services start jack
+reinstall jack
+services restart jack
 
 # Shells
-install bash
-install bash-completion
-install zsh --disable-etcdir
+reinstall bash
+reinstall bash-completion
+reinstall zsh --disable-etcdir
 
 # Command Line Tools
-install the_silver_searcher
-install tree
-install vim --override-system-vi --with-client-server
-install svn
-install git --with-pcre --with-brewed-curl --with-brewed-openssl --with-brewed-svn --with-gettext
-install rsync
-install colordiff
+reinstall the_silver_searcher
+reinstall tree
+reinstall vim --override-system-vi --with-client-server
+reinstall svn
+reinstall git --with-pcre --with-brewed-curl --with-brewed-openssl --with-brewed-svn --with-gettext
+reinstall rsync
+reinstall colordiff
 
 # Libraries
-install qt
-install tcl-tk
-install openssl
-install libxml2 --with-python
-install libxslt
-install imagemagick --with-fontconfig --with-ghostscript --with-jp2 --with-librsvg --with-libtiff --with-webp
-install freetype
-install libpng
-install jpeg
-install libtiff
-install lame
-install libogg
-install libvorbis
-install x264
+reinstall qt
+reinstall tcl-tk
+reinstall openssl
+reinstall libxml2 --with-python
+reinstall libxslt
+reinstall imagemagick --with-fontconfig --with-ghostscript --with-jp2 --with-librsvg --with-libtiff --with-webp
+reinstall freetype
+reinstall libpng
+reinstall jpeg
+reinstall libtiff
+reinstall lame
+reinstall libogg
+reinstall libvorbis
+reinstall x264
 
 ########################################################
-BREW CASK
+# BREW CASK
 ########################################################
 
 # Development Tools
