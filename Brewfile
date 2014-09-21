@@ -44,13 +44,25 @@ install apple-gcc42
 install mysql --enable-memcached
 install postgresql --with-python
 install sqlite --with-functions
-install redis
-install solr
-install memcached
 install mongodb --with-openssl
+install redis
+install elasticsearch
+install memcached
 install rabbitmq
 install rabbitmq-c
+install solr
 
+services start mysql
+services start postgresql
+services start mongodb
+services start redis
+services start elasticsearch
+services start memcached
+services start rabbitmq
+
+# Misc
+install jack
+services start jack
 
 # Shells
 install bash

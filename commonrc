@@ -1,0 +1,9 @@
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export WORKON_HOME=~/.envs
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+if which pyenv > /dev/null; then eval "$(pyenv virtualenvwrapper)"; fi
+
+alias dog='pygmentize -g'
