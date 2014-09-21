@@ -34,14 +34,23 @@ brew upgrade
 
 # brew tap | grep -q "homebrew/dupes"; echo $?
 
-brew untap homebrew/dupes && brew tap homebrew/dupes
-brew untap homebrew/versions && brew tap homebrew/versions
-brew untap homebrew/homebrew-science && brew tap homebrew/homebrew-science
-brew untap homebrew/homebrew-php && brew tap homebrew/homebrew-php
-brew untap caskroom/cask && brew tap caskroom/cask
-brew untap caskroom/versions && brew tap caskroom/versions
-brew untap caskroom/fonts && brew tap caskroom/fonts
-brew untap thoughtbot/formulae && brew tap thoughtbot/formulae
+# brew untap homebrew/dupes && brew tap homebrew/dupes
+# brew untap homebrew/versions && brew tap homebrew/versions
+# brew untap homebrew/homebrew-science && brew tap homebrew/homebrew-science
+# brew untap homebrew/homebrew-php && brew tap homebrew/homebrew-php
+# brew untap caskroom/cask && brew tap caskroom/cask
+# brew untap caskroom/versions && brew tap caskroom/versions
+# brew untap caskroom/fonts && brew tap caskroom/fonts
+# brew untap thoughtbot/formulae && brew tap thoughtbot/formulae
+
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-science
+brew tap homebrew/homebrew-php
+brew tap caskroom/cask
+brew tap caskroom/versions
+brew tap caskroom/fonts
+brew tap thoughtbot/formulae
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 brew_cask_install_or_upgrade 'xquartz'
