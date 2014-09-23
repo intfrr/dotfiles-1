@@ -5,6 +5,13 @@ setup-brew:
 	@echo "-----------"
 	bash setup-homebrew.sh
 
+setup-ssh:
+	ssh-keygen -t rsa -C "al.johri@gmail.com"
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_rsa
+	pbcopy < ~/.ssh/id_rsa.pub
+	open https://github.com/settings/ssh
+
 setup-vimrc:
 	@echo "Symlink vimrc to ~/.vimrc"
 	ln -hi -s `pwd`/vimrc ~/.vimrc
