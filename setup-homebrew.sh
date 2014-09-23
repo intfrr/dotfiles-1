@@ -1,3 +1,4 @@
+source laptop/common-components/shared-functions
 source laptop/mac-components/homebrew
 source laptop/mac-components/mac-functions
 

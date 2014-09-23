@@ -3,7 +3,7 @@ all: setup-commonrc setup-brew setup-vimrc setup-gemrc setup-git
 setup-brew:
 	@echo "Setup Homebrew"
 	@echo "-----------"
-	sh setup-homebrew.sh
+	bash setup-homebrew.sh
 
 setup-vimrc:
 	@echo "Symlink vimrc to ~/.vimrc"
