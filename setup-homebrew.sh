@@ -1,4 +1,5 @@
-source laptop/mac-components/mac-functions 
+source laptop/mac-components/homebrew
+source laptop/mac-components/mac-functions
 
 brew_cask_expand_alias() {
   brew cask info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
