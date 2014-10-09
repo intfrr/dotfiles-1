@@ -15,6 +15,9 @@ https://github.com/kevinSuttle/laptop
 https://github.com/croaky/dotfiles/blob/master/laptop.local
 http://robots.thoughtbot.com/keeping-a-github-fork-updated
 
+how to install pygame on osx
+https://bitbucket.org/pygame/pygame/issue/82/homebrew-on-leopard-fails-to-install#comment-627494
+
 ```
 disable r; 'disable r' >> ~/.zshrc;
 export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
