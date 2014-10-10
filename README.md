@@ -56,7 +56,7 @@ http://unix.stackexchange.com/questions/3428/share-aliases-and-path-setting-betw
 check it later https://github.com/thejameskyle/favorite-software
 http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
 http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_s_too_good_for_pip_or_easy_install_.html
-pip install SIP --allow-external SIP --allow-unverified SIP
+pip install SIP --allow-external SIP --allow-unverified SIP -b .
 wget http://softlayer-dal.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-4.11.1/PyQt-mac-gpl-4.11.1.tar.gz
 ```
 
