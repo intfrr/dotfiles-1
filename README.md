@@ -74,6 +74,9 @@ cd PyQt-mac-gpl-4.11.1
 python configure.py
 make
 make install
+
+# change your backend
+http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
 ```
 
 ```
