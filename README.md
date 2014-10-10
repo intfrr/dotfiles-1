@@ -55,9 +55,25 @@ https://github.com/robbyrussell/oh-my-zsh
 http://unix.stackexchange.com/questions/3428/share-aliases-and-path-setting-between-zsh-and-bash
 check it later https://github.com/thejameskyle/favorite-software
 http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
+```
+
 http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_s_too_good_for_pip_or_easy_install_.html
+```
+# go to any tmp directory 
 pip install SIP --allow-external SIP --allow-unverified SIP -b .
+cp SIP
+python configure.py
+make
+make install
+
+# back to tmp directory
+cd ../
 wget http://softlayer-dal.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-4.11.1/PyQt-mac-gpl-4.11.1.tar.gz
+tar -xvf PyQt-mac-gpl-4.11.1.tar.gz
+cd PyQt-mac-gpl-4.11.1
+python configure.py
+make
+make install
 ```
 
 ```
