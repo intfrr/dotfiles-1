@@ -114,7 +114,7 @@ brew_install_or_upgrade 'zsh' '--disable-etcdir'
 # Command Line Tools
 brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'tree'
-brew_install_or_upgrade 'vim' '--override-system-vi' '--with-client-server'
+brew_install_or_upgrade 'vim' '--override-system-vi'
 brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'rsync'
