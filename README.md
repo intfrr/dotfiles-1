@@ -37,6 +37,7 @@ vagrant plugin install vagrant-vbguest
 
 https://github.com/bling/vim-airline
 https://github.com/Lokaltog/powerline
+https://github.com/jxnl/vim-files/blob/master/vimrc#L12
 
 ```
 echo 'install ruby' > Brewfile-ruby
