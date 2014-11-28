@@ -10,6 +10,7 @@ xcode-select --install
 sudo xcodebuild -license # after downloading xcode
 ```
 
+https://github.com/ealimonda/dotfiles
 https://github.com/thoughtbot/dotfiles
 https://github.com/kevinSuttle/laptop
 https://github.com/croaky/dotfiles/blob/master/laptop.local
