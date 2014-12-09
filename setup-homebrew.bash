@@ -157,7 +157,6 @@ brew_cask_install_or_upgrade 'virtualbox'
 brew_cask_install_or_upgrade 'vagrant'
 brew_cask_install_or_upgrade 'sequel-pro'
 brew_cask_install_or_upgrade 'google-refine'
-brew_cask_install_or_upgrade 'android-studio'
 brew_cask_install_or_upgrade 'macfusion'
 
 # Data Science Tools
@@ -199,7 +198,11 @@ brew_cask_install_or_upgrade 'licecap'
 brew_cask_install_or_upgrade 'colloquy'
 
 # Android
+brew_cask_install_or_upgrade 'android-studio'
 brew_cask_install_or_upgrade 'android-file-transfer'
+
+# Mailbox
+brew_cask_install_or_upgrade 'mailbox'
 
 # Markdown Editor
 brew_cask_install_or_upgrade 'mou'
