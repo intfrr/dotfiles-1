@@ -152,6 +152,9 @@ brew_cask_install_or_upgrade 'heroku-toolbelt'
 brew_cask_install_or_upgrade 'virtualbox'
 brew_cask_install_or_upgrade 'vagrant'
 brew_cask_install_or_upgrade 'sequel-pro'
+brew_cask_install_or_upgrade 'google-web-designer'
+brew_cask_install_or_upgrade 'google-refine'
+brew_cask_install_or_upgrade 'android-studio'
 
 # Data Science Tools
 brew_cask_install_or_upgrade 'rstudio' # launchctl setenv RSTUDIO_WHICH_R `which r`
