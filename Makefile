@@ -1,9 +1,9 @@
-all: setup-commonrc setup-brew setup-vimrc setup-gemrc setup-git
+all: setup-commonrc setup-homebrew setup-vimrc setup-gemrc setup-git
 
-setup-brew:
+setup-homebrew:
 	@echo "Setup Homebrew"
 	@echo "-----------"
-	bash setup-homebrew.sh
+	./setup-homebrew.bash
 
 setup-ssh:
 	ssh-keygen -t rsa -C "al.johri@gmail.com"
@@ -28,4 +28,4 @@ setup-commonrc:
 	@echo "Symlink commonrc to ~/.commonrc"
 	ln -hi -s `pwd`/commonrc ~/.commonrc
 	@echo "Adding 'source ~/.commonrc' to zsh and/or bash profiles"
-	sh setup-commonrc.sh
+	./setup-commonrc.bash

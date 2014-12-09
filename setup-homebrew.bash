@@ -13,6 +13,10 @@ brew_cask_is_installed() {
   brew cask list -1 | grep -Fqx "$NAME"
 }
 
+brew_tap_is_tapped() {
+  brew tap | grep -Fqx $1
+}
+
 brew_cask_install_or_upgrade() {
   if brew_cask_is_installed "$1"; then
   	echo "$1 is already installed, brew cask upgrade is not yet implmented"
@@ -20,6 +24,9 @@ brew_cask_install_or_upgrade() {
     brew cask install --appdir="/Applications" "$@"
   fi
 }
+
+# always ignore "python" as dependency because it will install
+# homebrew python
 
 brew_install_or_upgrade() {
   if brew_is_installed "$1"; then
@@ -29,34 +36,29 @@ brew_install_or_upgrade() {
       echo "$1 is already installed and is the latest version"
     fi
   else
-    brew install "$@"
+    brew install --ignore-dependencies python "$@"
   fi
 }
 
-brew update
-brew upgrade
+brew_tap() {
+  if brew_tap_is_tapped "$1"; then
+    echo "$1 is already tapped"
+  else
+    brew tap $1
+  fi
+}
 
-# brew tap | grep -q "homebrew/dupes"; echo $?
+# brew upgrade
 
-# brew untap homebrew/dupes && brew tap homebrew/dupes
-# brew untap homebrew/versions && brew tap homebrew/versions
-# brew untap homebrew/boneyard && brew tap homebrew/boneyard
-# brew untap homebrew/homebrew-science && brew tap homebrew/homebrew-science
-# brew untap homebrew/homebrew-php && brew tap homebrew/homebrew-php
-# brew untap caskroom/cask && brew tap caskroom/cask
-# brew untap caskroom/versions && brew tap caskroom/versions
-# brew untap caskroom/fonts && brew tap caskroom/fonts
-# brew untap thoughtbot/formulae && brew tap thoughtbot/formulae
-
-brew tap homebrew/dupes
-brew tap homebrew/versions
-brew tap homebrew/boneyard
-brew tap homebrew/homebrew-science
-brew tap homebrew/homebrew-php
-brew tap caskroom/cask
-brew tap caskroom/versions
-brew tap caskroom/fonts
-brew tap thoughtbot/formulae
+brew_tap 'homebrew/dupes'
+brew_tap 'homebrew/versions'
+brew_tap 'homebrew/boneyard'
+brew_tap 'homebrew/science'
+brew_tap 'homebrew/php'
+brew_tap 'caskroom/cask'
+brew_tap 'caskroom/versions'
+brew_tap 'caskroom/fonts'
+brew_tap 'thoughtbot/formulae'
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 brew_cask_install_or_upgrade 'xquartz'
@@ -154,9 +156,9 @@ brew_cask_install_or_upgrade 'heroku-toolbelt'
 brew_cask_install_or_upgrade 'virtualbox'
 brew_cask_install_or_upgrade 'vagrant'
 brew_cask_install_or_upgrade 'sequel-pro'
-brew_cask_install_or_upgrade 'google-web-designer'
 brew_cask_install_or_upgrade 'google-refine'
 brew_cask_install_or_upgrade 'android-studio'
+brew_cask_install_or_upgrade 'macfusion'
 
 # Data Science Tools
 brew_cask_install_or_upgrade 'rstudio' # launchctl setenv RSTUDIO_WHICH_R `which r`
@@ -247,43 +249,43 @@ brew_cask_install_or_upgrade 'provisionql'
 brew_cask_install_or_upgrade 'cert-quicklook'
 
 # Fonts
-fonts=(
-  font-m-plus
-  font-clear-sans
-  font-roboto
-  font-open-sans
-  font-source-sans-pro
-  font-lato
-  font-alegreya
-  font-montserrat
-  font-inconsolata
-  font-pt-sans
-  font-quattrocento-sans
-  font-quicksand
-  font-raleway
-  font-sorts-mill-goudy
-  font-ubuntu
-)
+# fonts=(
+#   font-m-plus
+#   font-clear-sans
+#   font-roboto
+#   font-open-sans
+#   font-source-sans-pro
+#   font-lato
+#   font-alegreya
+#   font-montserrat
+#   font-inconsolata
+#   font-pt-sans
+#   font-quattrocento-sans
+#   font-quicksand
+#   font-raleway
+#   font-sorts-mill-goudy
+#   font-ubuntu
+# )
 # brew cask install ${fonts[@]}
 
-apps=(
-  slack
-  spotify
-  google-chrome
-  dropbox
-  appcleaner
-  firefox
-  mou
-  iterm2
-  macvim
-  sublime-text
-  gitx
-  testflight
-  vlc
-  google-drive
-  tomighty
-  rescuetime
-)
+# apps=(
+#   slack
+#   spotify
+#   google-chrome
+#   dropbox
+#   appcleaner
+#   firefox
+#   mou
+#   iterm2
+#   macvim
+#   sublime-text
+#   gitx
+#   testflight
+#   vlc
+#   google-drive
+#   tomighty
+#   rescuetime
+# )
 
 # for app in "${apps[@]}"
 # do
