@@ -17,7 +17,7 @@ brew_cask_install_or_upgrade() {
   if brew_cask_is_installed "$1"; then
   	echo "$1 is already installed, brew cask upgrade is not yet implmented"
   else
-    brew cask install "$@"
+    brew cask install --appdir="/Applications" "$@"
   fi
 }
 
@@ -266,16 +266,34 @@ fonts=(
 )
 # brew cask install ${fonts[@]}
 
+apps=(
+  slack
+  spotify
+  google-chrome
+  dropbox
+  appcleaner
+  firefox
+  mou
+  iterm2
+  macvim
+  sublime-text
+  gitx
+  testflight
+  vlc
+  google-drive
+  tomighty
+  rescuetime
+)
 
-for app in "${apps[@]}"
-do
-	printf "Should I install %s\n" $app
-	echo "Type Y to accept: \c"
-	read line
-	if [ "$line" = Y ] || [ "$line" = y ]; then
-		brew cask install --appdir="/Applications" $app
-	fi
-done
+# for app in "${apps[@]}"
+# do
+# 	printf "Should I install %s\n" $app
+# 	echo "Type Y to accept: \c"
+# 	read line
+# 	if [ "$line" = Y ] || [ "$line" = y ]; then
+# 		brew_cask_install_or_upgrade  $app
+# 	fi
+# done
 
 brew_cask_install_or_upgrade 'java'
 
