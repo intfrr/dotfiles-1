@@ -66,7 +66,7 @@ http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_
 wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
 tar -xvf sip-4.16.4.tar.gz
 cd sip-4.16.4
-python configure.py
+python configure.py --confirm-license
 make
 make install
 
@@ -74,8 +74,8 @@ make install
 cd ../
 wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt-mac-gpl-4.11.3.tar.gz
 tar -xvf PyQt-mac-gpl-4.11.3.tar.gz
-cd PyQt-mac-gpl-4.11.3.tar.gz
-python configure.py
+cd PyQt-mac-gpl-4.11.3
+python configure.py --confirm-license
 make
 make install
 
