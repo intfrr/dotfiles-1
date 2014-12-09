@@ -62,8 +62,9 @@ http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebre
 http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_s_too_good_for_pip_or_easy_install_.html
 ```
 # go to any tmp directory 
-pip install SIP --allow-external SIP --allow-unverified SIP -b .
-cp SIP
+pip install sip --allow-external sip --allow-unverified sip --download="."
+unzip sip-4.16.4
+cd sip-4.16.4
 python configure.py
 make
 make install
