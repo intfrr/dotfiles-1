@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 source laptop/common-components/shared-functions
 source laptop/mac-components/homebrew
 source laptop/mac-components/mac-functions
@@ -243,6 +245,37 @@ brew_cask_install_or_upgrade 'webp-quicklook'
 brew_cask_install_or_upgrade 'suspicious-package'
 brew_cask_install_or_upgrade 'provisionql'
 brew_cask_install_or_upgrade 'cert-quicklook'
+
+# Fonts
+fonts=(
+  font-m-plus
+  font-clear-sans
+  font-roboto
+  font-open-sans
+  font-source-sans-pro
+  font-lato
+  font-alegreya
+  font-montserrat
+  font-inconsolata
+  font-pt-sans
+  font-quattrocento-sans
+  font-quicksand
+  font-raleway
+  font-sorts-mill-goudy
+  font-ubuntu
+)
+# brew cask install ${fonts[@]}
+
+
+for app in "${apps[@]}"
+do
+	printf "Should I install %s\n" $app
+	echo "Type Y to accept: \c"
+	read line
+	if [ "$line" = Y ] || [ "$line" = y ]; then
+		brew cask install --appdir="/Applications" $app
+	fi
+done
 
 brew_cask_install_or_upgrade 'java'
 
