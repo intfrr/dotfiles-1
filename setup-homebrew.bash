@@ -76,6 +76,9 @@ brew_install_or_upgrade 'rename'
 brew_install_or_upgrade 'watch'
 brew_install_or_upgrade 'md5sha1sum'
 
+brew_install_or_upgrade 'docker'
+brew_install_or_upgrade 'boot2docker'
+
 # Languages and Compilers
 brew_install_or_upgrade  'php55' '--with-gmp' '--with-pgsql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl'
 brew_install_or_upgrade  'pyenv' 'pyenv-virtualenvwrapper'
