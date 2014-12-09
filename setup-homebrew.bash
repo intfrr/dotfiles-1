@@ -158,6 +158,7 @@ brew_cask_install_or_upgrade 'vagrant'
 brew_cask_install_or_upgrade 'sequel-pro'
 brew_cask_install_or_upgrade 'google-refine'
 brew_cask_install_or_upgrade 'macfusion'
+brew_cask_install_or_upgrade 'genymotion'
 
 # Data Science Tools
 brew_cask_install_or_upgrade 'rstudio' # launchctl setenv RSTUDIO_WHICH_R `which r`
