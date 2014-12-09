@@ -38,6 +38,7 @@ brew upgrade
 
 # brew untap homebrew/dupes && brew tap homebrew/dupes
 # brew untap homebrew/versions && brew tap homebrew/versions
+# brew untap homebrew/boneyard && brew tap homebrew/boneyard
 # brew untap homebrew/homebrew-science && brew tap homebrew/homebrew-science
 # brew untap homebrew/homebrew-php && brew tap homebrew/homebrew-php
 # brew untap caskroom/cask && brew tap caskroom/cask
@@ -47,6 +48,7 @@ brew upgrade
 
 brew tap homebrew/dupes
 brew tap homebrew/versions
+brew tap homebrew/boneyard
 brew tap homebrew/homebrew-science
 brew tap homebrew/homebrew-php
 brew tap caskroom/cask
@@ -94,6 +96,9 @@ brew_install_or_upgrade  'rabbitmq'
 brew_install_or_upgrade  'rabbitmq-c'
 brew_install_or_upgrade  'solr'
 
+# Services
+# one can also use brew services from the boneyard
+# http://robots.thoughtbot.com/starting-and-stopping-background-services-with-homebrew
 brew_launchctl_restart 'mysql'
 brew_launchctl_restart 'postgresql'
 brew_launchctl_restart 'mongodb'
