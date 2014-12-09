@@ -13,6 +13,7 @@ sudo xcodebuild -license # after downloading xcode
 https://github.com/ealimonda/dotfiles
 https://github.com/thoughtbot/dotfiles
 https://github.com/kevinSuttle/laptop
+https://github.com/IcaliaLabs/kaishi/blob/master/kaishi-mac
 https://github.com/croaky/dotfiles/blob/master/laptop.local
 http://robots.thoughtbot.com/keeping-a-github-fork-updated
 
