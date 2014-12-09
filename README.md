@@ -62,8 +62,9 @@ http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebre
 http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_s_too_good_for_pip_or_easy_install_.html
 ```
 # go to any tmp directory 
-pip install sip --allow-external sip --allow-unverified sip --download="."
-unzip sip-4.16.4
+# pip install sip --allow-external sip --allow-unverified sip --download="."
+wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
+tar -xvf sip-4.16.4.tar.gz
 cd sip-4.16.4
 python configure.py
 make
@@ -71,9 +72,9 @@ make install
 
 # back to tmp directory
 cd ../
-wget http://softlayer-dal.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-4.11.1/PyQt-mac-gpl-4.11.1.tar.gz
-tar -xvf PyQt-mac-gpl-4.11.1.tar.gz
-cd PyQt-mac-gpl-4.11.1
+wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt-mac-gpl-4.11.3.tar.gz
+tar -xvf PyQt-mac-gpl-4.11.3.tar.gz
+cd PyQt-mac-gpl-4.11.3.tar.gz
 python configure.py
 make
 make install
