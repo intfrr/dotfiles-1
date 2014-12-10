@@ -362,4 +362,6 @@ brew_cask_install_or_upgrade 'cert-quicklook'
 
 brew_cask_install_or_upgrade 'java'
 
+brew_cask_install_or_upgrade 'evernote'
+
 brew cleanup
