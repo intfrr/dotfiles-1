@@ -130,6 +130,7 @@ brew_install_or_upgrade 'lynx'
 brew_install_or_upgrade 'rename'
 brew_install_or_upgrade 'watch'
 brew_install_or_upgrade 'md5sha1sum'
+brew_install_or_upgrade 'pigz'
 
 brew_install_or_upgrade 'docker'
 brew_install_or_upgrade 'boot2docker'
@@ -208,7 +209,7 @@ brew_install_or_upgrade 'x264'
 ########################################################
 
 # Development Tools
-brew_cask_install_or_upgrade 'iterm2-beta'
+brew_cask_install_or_upgrade 'iterm2-nightly'
 brew_cask_install_or_upgrade 'sublime-text3'
 brew_cask_install_or_upgrade 'heroku-toolbelt'
 brew_cask_install_or_upgrade 'virtualbox'

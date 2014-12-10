@@ -18,4 +18,4 @@ fi
 
 export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
 export RSTUDIO_WHICH_R=$(brew --prefix r)
-echo setenv RSTUDIO_WHICH_R $(brew --prefix r) | launchctl
+launchctl `echo setenv RSTUDIO_WHICH_R $(brew --prefix r)`

@@ -1,4 +1,4 @@
-all: setup-commonrc setup-homebrew setup-vimrc setup-gemrc setup-git
+all: setup-commonrc setup-homebrew setup-vimrc setup-gemrc setup-git setup-shells
 
 setup-homebrew:
 	@echo "Setup Homebrew"
@@ -59,7 +59,18 @@ setup-pythonpackages:
 	/usr/local/bin/pip install "ipython[notebook]"
 	/usr/local/bin/pip install matplotlib
 	/usr/local/bin/pip install requests
+	/usr/local/bin/pip install pygments
 	/usr/local/bin/pip install lxml
 	/usr/local/bin/python -m nltk.downloader all
+	/usr/local/bin/pip install virtualenv
+	/usr/local/bin/pip install virtualenv-clone
+	/usr/local/bin/pip install virtualenvwrapper
 
 	# http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
+
+setup-shells:
+	@echo "Copying shells to /etc/shells"
+	sudo cp shells /etc/shells
+
+setup-zsh:
+	curl -L http://install.ohmyz.sh | sh
