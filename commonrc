@@ -7,3 +7,15 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv virtualenvwrapper)"; fi
 
 alias dog='pygmentize -g'
+
+if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+   disable r
+fi
+
+# http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
+# https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
+# https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
+
+export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
+export RSTUDIO_WHICH_R=$(brew --prefix r)
+echo setenv RSTUDIO_WHICH_R $(brew --prefix r) | launchctl

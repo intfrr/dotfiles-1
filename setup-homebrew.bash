@@ -155,8 +155,7 @@ brew_install_or_upgrade  'mongodb' '--with-openssl'
 brew_install_or_upgrade  'redis'
 brew_install_or_upgrade  'elasticsearch'
 brew_install_or_upgrade  'memcached'
-brew_install_or_upgrade  'rabbitmq'
-brew_install_or_upgrade  'rabbitmq-c'
+brew_install_or_upgrade  'rabbitmq' 'rabbitmq-c'
 brew_install_or_upgrade  'solr'
 
 # Services

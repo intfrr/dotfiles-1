@@ -29,3 +29,27 @@ setup-commonrc:
 	ln -hi -s `pwd`/commonrc ~/.commonrc
 	@echo "Adding 'source ~/.commonrc' to zsh and/or bash profiles"
 	./setup-commonrc.bash
+
+setup-python:
+	pyenv install 2.7.7
+	rbenv global 2.7.8
+
+setup-pipconf:
+	@echo "Symlink pip.config to ~/.pip/pip.conf"
+	mkdir -p ~/.pip
+	ln -hi -s `pwd`/pip.conf ~/.pip/pip.conf
+
+setup-ruby:
+	rbenv install 2.1.5
+	rbenv global 2.1.5
+
+setup-pythonpackages:
+	wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
+	tar -xvf sip-4.16.4.tar.gz
+	cd sip-4.16.4; python configure.py; make; make install
+
+	wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt-mac-gpl-4.11.3.tar.gz
+	tar -xvf PyQt-mac-gpl-4.11.3.tar.gz
+	cd PyQt-mac-gpl-4.11.3; python configure.py --confirm-license; make; make install
+
+	# http://matplotlib.org/faq/usage_faq.html#what-is-a-backend

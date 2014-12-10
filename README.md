@@ -20,18 +20,6 @@ http://robots.thoughtbot.com/keeping-a-github-fork-updated
 how to install pygame on osx
 https://bitbucket.org/pygame/pygame/issue/82/homebrew-on-leopard-fails-to-install#comment-627494
 
-```
-disable r; 'disable r' >> ~/.zshrc;
-export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
-env LDFLAGS=-L$R_HOME/lib pip install rpy2
-echo setenv RSTUDIO_WHICH_R $(brew --prefix r) | launchctl
-export RSTUDIO_WHICH_R=$(brew --prefix r)
-
-# http://hackr.se/setup-r-and-rstudio-on-mac-os-x/
-# https://bitbucket.org/lgautier/rpy2/issue/194/libr-not-found-on-os-x-with-homebrew-r
-# https://support.rstudio.com/hc/en-us/articles/200486138-Using-Different-Versions-of-R
-```
-
 Vagrant https://github.com/dotless-de/vagrant-vbguest
 ```
 vagrant plugin install vagrant-vbguest
@@ -42,13 +30,6 @@ https://github.com/Lokaltog/powerline
 https://github.com/jxnl/vim-files/blob/master/vimrc#L12
 
 ```
-echo 'install ruby' > Brewfile-ruby
-echo 'bundle Brewfile-ruby' > Brewfile
-brew bundle
-```
-
-```
-http://stackoverflow.com/a/15948723/1106919 # PIP CACHE
 https://github.com/mathiasbynens/dotfiles/blob/master/Brewfile#L39
 https://github.com/kevinSuttle/laptop/blob/master/mac-components/node
 https://github.com/kevinSuttle/laptop/blob/master/mac-components/Brewfile-casks
@@ -58,35 +39,6 @@ https://github.com/robbyrussell/oh-my-zsh
 http://unix.stackexchange.com/questions/3428/share-aliases-and-path-setting-between-zsh-and-bash
 check it later https://github.com/thejameskyle/favorite-software
 http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
-```
-
-http://movingthelamppost.com/blog/html/2013/07/12/installing_pyqt____because_it_s_too_good_for_pip_or_easy_install_.html
-```
-# go to any tmp directory 
-# pip install sip --allow-external sip --allow-unverified sip --download="."
-wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
-tar -xvf sip-4.16.4.tar.gz
-cd sip-4.16.4
-python configure.py --confirm-license
-make
-make install
-
-# back to tmp directory
-cd ../
-wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt-mac-gpl-4.11.3.tar.gz
-tar -xvf PyQt-mac-gpl-4.11.3.tar.gz
-cd PyQt-mac-gpl-4.11.3
-python configure.py --confirm-license
-make
-make install
-
-# change your backend
-http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
-```
-
-```
-brew_install_or_upgrade command
-https://github.com/thoughtbot/laptop/blob/2aa635f0e3ff8e0d2ac30c08879ddec641e86b5d/mac
 ```
 
 ```
