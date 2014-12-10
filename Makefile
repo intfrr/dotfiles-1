@@ -44,12 +44,22 @@ setup-ruby:
 	rbenv global 2.1.5
 
 setup-pythonpackages:
-	wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
-	tar -xvf sip-4.16.4.tar.gz
-	cd sip-4.16.4; python configure.py; make; make install
+	# wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
+	# tar -xvf sip-4.16.4.tar.gz
+	# cd sip-4.16.4; /usr/local/bin/python configure.py; make; make install
 
-	wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt-mac-gpl-4.11.3.tar.gz
-	tar -xvf PyQt-mac-gpl-4.11.3.tar.gz
-	cd PyQt-mac-gpl-4.11.3; python configure.py --confirm-license; make; make install
+	# wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt-mac-gpl-4.11.3.tar.gz
+	# tar -xvf PyQt-mac-gpl-4.11.3.tar.gz
+	# cd PyQt-mac-gpl-4.11.3; /usr/local/bin/python configure.py --confirm-license; make; make install
+
+	/usr/local/bin/pip install numpy
+	/usr/local/bin/pip install scipy
+	/usr/local/bin/pip install scikit-learn
+	/usr/local/bin/pip install nltk
+	/usr/local/bin/pip install "ipython[notebook]"
+	/usr/local/bin/pip install matplotlib
+	/usr/local/bin/pip install requests
+	/usr/local/bin/pip install lxml
+	/usr/local/bin/python -m nltk.downloader all
 
 	# http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
