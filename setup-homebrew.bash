@@ -203,6 +203,7 @@ brew_install_or_upgrade 'lame'
 brew_install_or_upgrade 'libogg'
 brew_install_or_upgrade 'libvorbis'
 brew_install_or_upgrade 'x264'
+brew_install_or_upgrade 'graphviz'
 
 ########################################################
 # BREW CASK
