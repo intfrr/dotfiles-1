@@ -205,6 +205,7 @@ brew_install_or_upgrade 'libogg'
 brew_install_or_upgrade 'libvorbis'
 brew_install_or_upgrade 'x264'
 brew_install_or_upgrade 'graphviz'
+brew_install_or_upgrade 'android-sdk'
 
 ########################################################
 # BREW CASK
