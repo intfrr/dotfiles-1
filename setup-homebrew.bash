@@ -146,6 +146,7 @@ brew_install_or_upgrade  'ghc'
 brew_install_or_upgrade  'lua' '--with-completion'
 brew_install_or_upgrade  'gcc' '--with-all-languages'
 brew_install_or_upgrade  'apple-gcc42'
+brew_install_or_upgrade  'gdb'
 
 # Databases
 # brew_install_or_upgrade  'mysql' '--enable-memcached' https://github.com/Homebrew/homebrew/issues/33448
