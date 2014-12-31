@@ -1,6 +1,6 @@
 windows setup instructions
 ```
-choco install google-chrome-x64 transmission-qt virtualclonedrive ccleaner vlc notepadplusplus.install dropbox firefox skype teamviewer keepass.install silverlight thunderbird malwarebytes irfanview audacity googledrive spotify imgburn f.lux picasa flashplayerplugin flashplayeractivex atom sublimetext3 sublimetext3.packagecontrol putty vim git.install nodejs npm ruby rubygems python2 python3 pip filezilla curl sourcetree mongodb mysql postgresql pgadmin3 javaruntime vcredist2010 dotnet4.5 dotnet4.5.1 
+choco install google-chrome-x64 transmission-qt virtualclonedrive ccleaner vlc notepadplusplus.install dropbox firefox skype teamviewer keepass.install silverlight thunderbird malwarebytes irfanview audacity googledrive spotify imgburn f.lux picasa flashplayerplugin flashplayeractivex atom sublimetext3 sublimetext3.packagecontrol putty vim git.install nodejs npm ruby rubygems python2 python3 pip filezilla curl sourcetree mongodb mysql postgresql pgadmin3 javaruntime vcredist2010 dotnet4.5 dotnet4.5.1 dotnet4.5.2
 ```
 
 ```
