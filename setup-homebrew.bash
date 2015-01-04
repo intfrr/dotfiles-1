@@ -188,6 +188,7 @@ brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'rsync'
 brew_install_or_upgrade 'colordiff'
+brew_install_or_upgrade 'memtester'
 brew_install_or_upgrade 'tig'
 
 # Libraries
