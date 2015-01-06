@@ -369,5 +369,6 @@ brew_cask_install_or_upgrade 'java'
 
 brew_cask_install_or_upgrade 'evernote'
 brew_cask_install_or_upgrade 'plex-media-server'
+brew_cask_install_or_upgrade 'ccleaner'
 
 brew cleanup
