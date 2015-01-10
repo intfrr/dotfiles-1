@@ -370,5 +370,9 @@ brew_cask_install_or_upgrade 'java'
 brew_cask_install_or_upgrade 'evernote'
 brew_cask_install_or_upgrade 'plex-media-server'
 brew_cask_install_or_upgrade 'ccleaner'
+brew_cask_install_or_upgrade 'lingon-x'
+brew_cask_install_or_upgrade 'seashore'
+brew_cask_install_or_upgrade 'geektool'
+brew_cask_install_or_upgrade 'menumeters'
 
 brew cleanup
