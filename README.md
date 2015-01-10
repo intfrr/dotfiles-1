@@ -9,7 +9,7 @@ choco install everything.beta.install google-chrome-x64 transmission-qt virtualc
 ```
 
 ```
-choco install atom sublimetext3 sublimetext3.packagecontrol putty vim git.install nodejs npm ruby rubygems python2 filezilla curl sourcetree mongodb mysql postgresql pgadmin3
+choco install atom sublimetext3 putty vim git.install nodejs npm ruby rubygems python2 filezilla curl sourcetree mongodb mysql postgresql pgadmin3
 ```
 
 ```
