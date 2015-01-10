@@ -367,6 +367,9 @@ brew_cask_install_or_upgrade 'cert-quicklook'
 
 brew_cask_install_or_upgrade 'java'
 
+brew_cask_install_or_upgrade 'logitech-control-center'
+brew_cask_install_or_upgrade 'logitech-unifying'
+
 brew_cask_install_or_upgrade 'evernote'
 brew_cask_install_or_upgrade 'plex-media-server'
 brew_cask_install_or_upgrade 'ccleaner'
