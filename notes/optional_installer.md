@@ -1,3 +1,4 @@
+```
 # Fonts
 # fonts=(
 #   font-m-plus
@@ -53,3 +54,4 @@
 #         fancy_echo "Already using a version of cask %s. Skipping to ask user ..." app
 #     fi
 # done
+```
