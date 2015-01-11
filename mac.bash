@@ -147,6 +147,7 @@ brew_install_or_upgrade 'rename'
 brew_install_or_upgrade 'watch'
 brew_install_or_upgrade 'md5sha1sum'
 brew_install_or_upgrade 'pigz'
+brew_install_or_upgrade 'bzip2'
 
 brew_install_or_upgrade 'docker'
 brew_install_or_upgrade 'boot2docker'
