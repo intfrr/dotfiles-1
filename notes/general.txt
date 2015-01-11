@@ -1,0 +1,36 @@
+# Links to check out
+
+- https://github.com/anishathalye/dotbot
+- https://github.com/anishathalye/dotfiles
+- https://github.com/ealimonda/dotfiles
+- https://github.com/thoughtbot/dotfiles
+- https://github.com/kevinSuttle/laptop
+- https://github.com/IcaliaLabs/kaishi/blob/master/kaishi-mac
+- https://github.com/croaky/dotfiles/blob/master/laptop.local
+- http://robots.thoughtbot.com/keeping-a-github-fork-updated
+- https://github.com/dotless-de/vagrant-vbguest
+- https://github.com/bling/vim-airline
+- https://github.com/Lokaltog/powerline
+- https://github.com/jxnl/vim-files/blob/master/vimrc#L12
+- https://github.com/mathiasbynens/dotfiles/blob/master/Brewfile#L39
+- https://github.com/kevinSuttle/laptop/blob/master/mac-components/node
+- https://github.com/kevinSuttle/laptop/blob/master/mac-components/Brewfile-casks
+- https://github.com/pstadler/dotfiles
+- https://github.com/AlJohri/bash-it/tree/theme-ohmyzsh
+- https://github.com/robbyrussell/oh-my-zsh
+- http://unix.stackexchange.com/questions/3428/share-aliases-and-path-setting-between-zsh-and-bash
+- https://github.com/thejameskyle/favorite-software
+- http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
+
+# Random Commands
+
+```
+vagrant plugin install vagrant-vbguest
+```
+
+```
+xcode-select --install
+# https://github.com/Homebrew/homebrew/issues/23074
+# download Xcode 5.0.1 for some cmake stuff
+sudo xcodebuild -license # after downloading xcode
+```
