@@ -146,6 +146,7 @@ brew_install_or_upgrade  'ghc'
 brew_install_or_upgrade  'lua' '--with-completion'
 brew_install_or_upgrade  'gcc' '--with-all-languages'
 brew_install_or_upgrade  'apple-gcc42'
+brew_install_or_upgrade  'gdb'
 
 # Databases
 # brew_install_or_upgrade  'mysql' '--enable-memcached' https://github.com/Homebrew/homebrew/issues/33448
@@ -187,6 +188,8 @@ brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'rsync'
 brew_install_or_upgrade 'colordiff'
+brew_install_or_upgrade 'memtester'
+brew_install_or_upgrade 'tig'
 
 # Libraries
 brew_install_or_upgrade 'qt'
@@ -203,6 +206,8 @@ brew_install_or_upgrade 'lame'
 brew_install_or_upgrade 'libogg'
 brew_install_or_upgrade 'libvorbis'
 brew_install_or_upgrade 'x264'
+brew_install_or_upgrade 'graphviz'
+brew_install_or_upgrade 'android-sdk'
 
 ########################################################
 # BREW CASK
@@ -362,10 +367,23 @@ brew_cask_install_or_upgrade 'cert-quicklook'
 
 brew_cask_install_or_upgrade 'java'
 
+brew_cask_install_or_upgrade 'logitech-control-center'
+brew_cask_install_or_upgrade 'logitech-unifying'
+
 brew_cask_install_or_upgrade 'evernote'
+
 brew_cask_install_or_upgrade 'atom'
 brew_cask_install_or_upgrade 'cheatsheet'
+
 # don't need to bother with the app store for bettersnaptool
-brew_cask_install_or_upgrade 'sizeup' 'cinch'
+brew_cask_install_or_upgrade 'sizeup'
+brew_cask_install_or_upgrade 'cinch'
+
+brew_cask_install_or_upgrade 'plex-media-server'
+brew_cask_install_or_upgrade 'ccleaner'
+brew_cask_install_or_upgrade 'lingon-x'
+brew_cask_install_or_upgrade 'seashore'
+brew_cask_install_or_upgrade 'geektool'
+brew_cask_install_or_upgrade 'menumeters'
 
 brew cleanup
