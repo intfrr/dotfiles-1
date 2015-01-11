@@ -46,6 +46,8 @@ ln -hi -s `pwd`/templates/vimrc ~/.vimrc
 ln -hi -s `pwd`/templates/gitconfig ~/.gitconfig
 ln -hi -s `pwd`/templates/gemrc ~/.gemrc
 ln -hi -s `pwd`/templates/pip.conf ~/.pip/pip.conf
+ln -hi -s `pwd`/templates/gitignore ~/.gitignore
+ln -hi -s `pwd`/templates/agignore ~/.agignore
 
 append_to_zshrc 'source ~/.commonrc'
 
@@ -230,19 +232,16 @@ fi
 pyenv global "$python_version"
 pyenv shell "$python_version"
 
-curl -L http://install.ohmyz.sh | sh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  curl -L http://install.ohmyz.sh | sh
+fi
 
 fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
 sudo cp `pwd`/templates/shells /etc/shells
 
-case "$SHELL" in
-  /usr/local/bin/zsh) : ;;
-  *)
+if [ $SHELL != "/usr/local/bin/zsh" ]; then
     fancy_echo "Changing your /bin/zsh shell to /usr/local/bin/zsh ..."
-      chsh -s "$(which zsh)"
-    ;;
-esac
-
-chsh -s "$(which zsh)"
+    chsh -s "$(which zsh)"
+fi
 
 brew cleanup
