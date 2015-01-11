@@ -182,7 +182,7 @@ brew_install_or_upgrade 'zsh' '--disable-etcdir'
 # Command Line Tools
 brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'tree'
-brew_install_or_upgrade 'vim' '--override-system-vi'
+brew_install_or_upgrade 'vim' '--override-system-vi' '--enable-pythoninterp'
 brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'rsync'
@@ -363,5 +363,9 @@ brew_cask_install_or_upgrade 'cert-quicklook'
 brew_cask_install_or_upgrade 'java'
 
 brew_cask_install_or_upgrade 'evernote'
+brew_cask_install_or_upgrade 'atom'
+brew_cask_install_or_upgrade 'cheatsheet'
+# don't need to bother with the app store for bettersnaptool
+brew_cask_install_or_upgrade 'sizeup' 'cinch'
 
 brew cleanup
