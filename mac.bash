@@ -118,6 +118,7 @@ brew_cask_install_or_upgrade 'seashore'
 brew_cask_install_or_upgrade 'geektool'
 brew_cask_install_or_upgrade 'menumeters'
 brew_cask_install_or_upgrade 'plex-media-server'
+brew_cask_install_or_upgrade 'launchrocket'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
