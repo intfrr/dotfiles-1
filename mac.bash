@@ -49,13 +49,21 @@ fi
 
 mkdir -p ~/.pip
 
-ln -hi -s `pwd`/templates/commonrc ~/.commonrc
-ln -hi -s `pwd`/templates/vimrc ~/.vimrc
-ln -hi -s `pwd`/templates/gitconfig ~/.gitconfig
-ln -hi -s `pwd`/templates/gemrc ~/.gemrc
-ln -hi -s `pwd`/templates/pip.conf ~/.pip/pip.conf
-ln -hi -s `pwd`/templates/gitignore ~/.gitignore
-ln -hi -s `pwd`/templates/agignore ~/.agignore
+# file="~/.commonrc" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# file="~/.vimrc" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# file="~/.gitconfig" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# file="~/.gemrc" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# file="~/.pip/pip.conf" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# file="~/.gitignore" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# file="~/.agignore" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+
+ln -fs `pwd`/templates/commonrc ~/.commonrc
+ln -fs `pwd`/templates/vimrc ~/.vimrc
+ln -fs `pwd`/templates/gitconfig ~/.gitconfig
+ln -fs `pwd`/templates/gemrc ~/.gemrc
+# ln -fs `pwd`/templates/pip.conf ~/.pip/pip.conf (seemingly download_cache is now deprecated)
+ln -fs `pwd`/templates/gitignore ~/.gitignore
+ln -fs `pwd`/templates/agignore ~/.agignore
 
 append_to_zshrc 'source ~/.commonrc'
 
@@ -313,12 +321,13 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
 
-fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
+fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
 sudo cp `pwd`/templates/shells /etc/shells
 
 REALSHELL=$(dscl . -read /Users/$USER/ UserShell | awk '{ print $2 }')
 
 if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
+    fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
     fancy_echo "Changing your $REALSHELL shell to /usr/local/bin/zsh ..."
     chsh -s "$(which zsh)"
 fi
