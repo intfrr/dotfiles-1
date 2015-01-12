@@ -12,8 +12,7 @@ https://raymii.org/s/snippets/OS-X-Enable-Access-for-assistive-devices-via-comma
 /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/SizeUp.app/Contents/Info.plist # com.irradiatedsoftware.SizeUp
 /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/Cinch.app/Contents/Info.plist # com.irradiatedsoftware.Cinch-Direct
 /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/Karabiner.app/Contents/Info.plist # org.pqrs.Karabiner
-
-# Karabiner wrong? Need: org.pqrs.Karabiner-AXNotifier
+/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/Karabiner.app/Contents/Applications/Karabiner_AXNotifier.app/Contents/Info.plist # org.pqrs.Karabiner-AXNotifier
 
 # check if it already exists in db first ?
 
