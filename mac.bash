@@ -316,7 +316,9 @@ fi
 fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
 sudo cp `pwd`/templates/shells /etc/shells
 
-if [ $SHELL != "/usr/local/bin/zsh" ]; then
+REALSHELL=$(dscl . -read /Users/$USER/ UserShell | awk '{ print $2 }')
+
+if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
     fancy_echo "Changing your /bin/zsh shell to /usr/local/bin/zsh ..."
     chsh -s "$(which zsh)"
 fi
