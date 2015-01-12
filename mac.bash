@@ -319,7 +319,7 @@ sudo cp `pwd`/templates/shells /etc/shells
 REALSHELL=$(dscl . -read /Users/$USER/ UserShell | awk '{ print $2 }')
 
 if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
-    fancy_echo "Changing your /bin/zsh shell to /usr/local/bin/zsh ..."
+    fancy_echo "Changing your $REALSHELL shell to /usr/local/bin/zsh ..."
     chsh -s "$(which zsh)"
 fi
 
