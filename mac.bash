@@ -303,6 +303,12 @@ fi
 pyenv global "$python_version"
 pyenv shell "$python_version"
 
+pip install virtualenv
+pip install virtualenv-clone
+pip install virtualenvwrapper
+
+################
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
