@@ -187,6 +187,7 @@ brew_install_or_upgrade 'rsync'
 brew_install_or_upgrade 'colordiff'
 brew_install_or_upgrade 'memtester'
 brew_install_or_upgrade 'tig'
+brew_install_or_upgrade 'gh'
 
 # Libraries
 brew_install_or_upgrade 'qt'
