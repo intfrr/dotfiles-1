@@ -9,7 +9,7 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 # eval "$(rbenv init - zsh --no-rehash)"
 
 alias dog='pygmentize -g'
-eval "$(hub alias -s)"
+eval "$(gh alias -s)"
 alias findf='mdfind -onlyin . -name'
 
 if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
