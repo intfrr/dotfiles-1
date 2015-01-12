@@ -47,19 +47,6 @@ if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     open https://github.com/settings/ssh
 fi
 
-# mkdir -p ~/.pip # configure pip
-# mkdir -p ~/.vim # TODO: vim plugins, vundle, etc.
-
-ln -fs `pwd`/templates/commonrc ~/.commonrc
-ln -fs `pwd`/templates/vimrc ~/.vimrc
-ln -fs `pwd`/templates/gitconfig ~/.gitconfig
-ln -fs `pwd`/templates/gemrc ~/.gemrc
-# ln -fs `pwd`/templates/pip.conf ~/.pip/pip.conf (seemingly download_cache is now deprecated)
-ln -fs `pwd`/templates/gitignore ~/.gitignore
-ln -fs `pwd`/templates/agignore ~/.agignore
-
-append_to_zshrc 'source ~/.commonrc'
-
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
     curl -fsS \
@@ -327,3 +314,23 @@ if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
 fi
 
 brew cleanup
+
+################
+
+cd ~
+rm -rf dotfiles
+git clone git@github.com:AlJohri/dotfiles.git
+# mkdir -p ~/.pip # configure pip
+# mkdir -p ~/.vim # TODO: vim plugins, vundle, etc.
+
+cd dotfiles
+
+ln -fs `pwd`/templates/commonrc ~/.commonrc
+ln -fs `pwd`/templates/vimrc ~/.vimrc
+ln -fs `pwd`/templates/gitconfig ~/.gitconfig
+ln -fs `pwd`/templates/gemrc ~/.gemrc
+# ln -fs `pwd`/templates/pip.conf ~/.pip/pip.conf (seemingly download_cache is now deprecated)
+ln -fs `pwd`/templates/gitignore ~/.gitignore
+ln -fs `pwd`/templates/agignore ~/.agignore
+
+append_to_zshrc 'source ~/.commonrc'
