@@ -47,15 +47,8 @@ if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     open https://github.com/settings/ssh
 fi
 
-mkdir -p ~/.pip
-
-# file="~/.commonrc" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
-# file="~/.vimrc" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
-# file="~/.gitconfig" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
-# file="~/.gemrc" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
-# file="~/.pip/pip.conf" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
-# file="~/.gitignore" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
-# file="~/.agignore" && [ -f $file ] && [ ! -L $file ] && echo "$file exists and is not a symlink! abort" && exit 1
+# mkdir -p ~/.pip # configure pip
+# mkdir -p ~/.vim # TODO: vim plugins, vundle, etc.
 
 ln -fs `pwd`/templates/commonrc ~/.commonrc
 ln -fs `pwd`/templates/vimrc ~/.vimrc
