@@ -119,6 +119,7 @@ brew_cask_install_or_upgrade 'spotify'
 brew_cask_install_or_upgrade 'vlc'
 brew_cask_install_or_upgrade 'caffeine'
 brew_cask_install_or_upgrade 'calibre'
+brew_cask_install_or_upgrade 'xtrafinder'
 
 # [Brew Cask] Development
 brew_cask_install_or_upgrade 'virtualbox'
