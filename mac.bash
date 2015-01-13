@@ -133,8 +133,16 @@ brew_cask_install_or_upgrade 'lingon-x'
 brew_cask_install_or_upgrade 'seashore'
 brew_cask_install_or_upgrade 'geektool'
 brew_cask_install_or_upgrade 'menumeters'
-brew_cask_install_or_upgrade 'plex-media-server'
 brew_cask_install_or_upgrade 'launchrocket'
+
+# Personal PVR
+brew_cask_install_or_upgrade 'plex-media-server'
+brew_install_or_upgrade 'sickbeard'
+brew_install_or_upgrade 'couchpotatoserver'
+brew_install_or_upgrade 'headphones'
+brew_launchctl_restart 'sickbeard'
+brew_launchctl_restart 'couchpotatoserver'
+brew_launchctl_restart 'headphones'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
