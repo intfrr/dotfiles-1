@@ -73,6 +73,7 @@ brew_tap 'homebrew/php'
 brew_tap 'caskroom/cask'
 brew_tap 'caskroom/versions'
 brew_tap 'caskroom/fonts'
+brew_tap 'telemachus/homebrew-desc'
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 
