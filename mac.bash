@@ -134,6 +134,7 @@ brew_cask_install_or_upgrade 'seashore'
 brew_cask_install_or_upgrade 'geektool'
 brew_cask_install_or_upgrade 'menumeters'
 brew_cask_install_or_upgrade 'launchrocket'
+brew_cask_install_or_upgrade 'fritzing'
 
 # Personal PVR
 brew_cask_install_or_upgrade 'plex-media-server'
