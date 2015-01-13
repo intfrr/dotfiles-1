@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | awk '/\(\) *{/ , /^}/')"
 
 brew_cask_install_or_upgrade() {
     if brew_cask_is_installed "$1"; then
@@ -31,6 +31,14 @@ brew_tap() {
     fi
 }
 
+trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
+
+set -e
+
+if [ ! -f "$HOME/.zshrc" ]; then
+  touch "$HOME/.zshrc"
+fi
+
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     ssh-keygen -t rsa -C "al.johri@gmail.com"
     eval "$(ssh-agent -s)"
@@ -39,17 +47,24 @@ if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     open https://github.com/settings/ssh
 fi
 
-mkdir -p ~/.pip
+if ! command -v brew >/dev/null; then
+  fancy_echo "Installing Homebrew ..."
+    curl -fsS \
+      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
 
-ln -hi -s `pwd`/templates/commonrc ~/.commonrc
-ln -hi -s `pwd`/templates/vimrc ~/.vimrc
-ln -hi -s `pwd`/templates/gitconfig ~/.gitconfig
-ln -hi -s `pwd`/templates/gemrc ~/.gemrc
-ln -hi -s `pwd`/templates/pip.conf ~/.pip/pip.conf
-ln -hi -s `pwd`/templates/gitignore ~/.gitignore
-ln -hi -s `pwd`/templates/agignore ~/.agignore
+    append_to_zshrc '# recommended by brew doctor'
 
-append_to_zshrc 'source ~/.commonrc'
+    # shellcheck disable=SC2016
+    append_to_zshrc 'export PATH="/usr/local/bin:$PATH"' 1
+
+    export PATH="/usr/local/bin:$PATH"
+else
+  fancy_echo "Homebrew already installed. Skipping ..."
+fi
+
+fancy_echo "Updating Homebrew formulas ..."
+brew update
+
 
 brew_tap 'homebrew/dupes'
 brew_tap 'homebrew/versions'
@@ -84,6 +99,7 @@ brew_cask_install_or_upgrade 'spotify'
 brew_cask_install_or_upgrade 'vlc'
 brew_cask_install_or_upgrade 'caffeine'
 brew_cask_install_or_upgrade 'calibre'
+brew_cask_install_or_upgrade 'xtrafinder'
 
 # [Brew Cask] Development
 brew_cask_install_or_upgrade 'virtualbox'
@@ -117,8 +133,17 @@ brew_cask_install_or_upgrade 'lingon-x'
 brew_cask_install_or_upgrade 'seashore'
 brew_cask_install_or_upgrade 'geektool'
 brew_cask_install_or_upgrade 'menumeters'
-brew_cask_install_or_upgrade 'plex-media-server'
 brew_cask_install_or_upgrade 'launchrocket'
+brew_cask_install_or_upgrade 'fritzing'
+
+# Personal PVR
+brew_cask_install_or_upgrade 'plex-media-server'
+brew_install_or_upgrade 'sickbeard'
+brew_install_or_upgrade 'couchpotatoserver'
+brew_install_or_upgrade 'headphones'
+brew_launchctl_restart 'sickbeard'
+brew_launchctl_restart 'couchpotatoserver'
+brew_launchctl_restart 'headphones'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
@@ -147,6 +172,7 @@ brew_install_or_upgrade 'rename'
 brew_install_or_upgrade 'watch'
 brew_install_or_upgrade 'md5sha1sum'
 brew_install_or_upgrade 'pigz'
+brew_install_or_upgrade 'bzip2'
 
 brew_install_or_upgrade 'docker'
 brew_install_or_upgrade 'boot2docker'
@@ -170,6 +196,8 @@ brew_install_or_upgrade 'rsync'
 brew_install_or_upgrade 'colordiff'
 brew_install_or_upgrade 'memtester'
 brew_install_or_upgrade 'tig'
+brew_install_or_upgrade 'gh'
+brew_install_or_upgrade 'ngrok'
 
 # Libraries
 brew_install_or_upgrade 'qt'
@@ -177,6 +205,8 @@ brew_install_or_upgrade 'tcl-tk'
 brew_install_or_upgrade 'openssl'
 brew_install_or_upgrade 'libxml2' '--with-python'
 brew_install_or_upgrade 'libxslt'
+brew_install_or_upgrade 'ctags'
+brew_install_or_upgrade 'reattach-to-user-namespace'
 brew_install_or_upgrade 'imagemagick' '--with-fontconfig' '--with-ghostscript' '--with-jp2' '--with-librsvg' '--with-libtiff' '--with-webp'
 brew_install_or_upgrade 'freetype'
 brew_install_or_upgrade 'libpng'
@@ -188,13 +218,11 @@ brew_install_or_upgrade 'libvorbis'
 brew_install_or_upgrade 'x264'
 brew_install_or_upgrade 'graphviz'
 brew_install_or_upgrade 'android-sdk'
+brew_install_or_upgrade 'openssl'
+brew_install_or_upgrade 'libyaml'
 
 # Languages and Compilers
 brew_install_or_upgrade 'php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp'
-brew_install_or_upgrade 'pyenv'
-brew_install_or_upgrade 'pyenv-virtualenvwrapper'
-brew_install_or_upgrade 'rbenv'
-brew_install_or_upgrade 'ruby-build'
 brew_install_or_upgrade 'r' '--with-openblas'
 brew_install_or_upgrade 'go' '--cross-compile-all'
 brew_install_or_upgrade 'ghc'
@@ -223,6 +251,48 @@ brew_launchctl_restart 'elasticsearch'
 brew_launchctl_restart 'memcached'
 brew_launchctl_restart 'rabbitmq'
 
+brew_install_or_upgrade 'heroku-toolbelt'
+
+################
+
+brew_install_or_upgrade 'nvm'
+
+node_version="0.10"
+append_to_zshrc 'export PATH="$PATH:/usr/local/lib/node_modules"'
+append_to_zshrc 'source $(brew --prefix nvm)/nvm.sh' 1
+source "$(brew --prefix nvm)/nvm.sh"
+nvm install "$node_version"
+fancy_echo "Setting $node_version as the global default nodejs..."
+nvm alias default "$node_version"
+
+################
+
+brew_install_or_upgrade 'rbenv'
+brew_install_or_upgrade 'ruby-build'
+
+ruby_version="2.2.0"
+eval "$(rbenv init -)"
+
+if ! rbenv versions | grep -Fq "$ruby_version"; then
+  rbenv install -s "$ruby_version"
+fi
+
+rbenv global "$ruby_version"
+rbenv shell "$ruby_version"
+
+gem update --system
+
+gem_install_or_update 'bundler'
+
+fancy_echo "Configuring Bundler ..."
+  number_of_cores=$(sysctl -n hw.ncpu)
+  bundle config --global jobs $((number_of_cores - 1))
+
+################
+
+brew_install_or_upgrade 'pyenv'
+brew_install_or_upgrade 'pyenv-virtualenvwrapper'
+
 python_version="2.7.9"
 eval "$(pyenv init -)"
 
@@ -233,16 +303,45 @@ fi
 pyenv global "$python_version"
 pyenv shell "$python_version"
 
+pip install virtualenv
+pip install virtualenv-clone
+pip install virtualenvwrapper
+
+################
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
 
-fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
+fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
 sudo cp `pwd`/templates/shells /etc/shells
 
-if [ $SHELL != "/usr/local/bin/zsh" ]; then
-    fancy_echo "Changing your /bin/zsh shell to /usr/local/bin/zsh ..."
+REALSHELL=$(dscl . -read /Users/$USER/ UserShell | awk '{ print $2 }')
+
+if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
+    fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
+    fancy_echo "Changing your $REALSHELL shell to /usr/local/bin/zsh ..."
     chsh -s "$(which zsh)"
 fi
 
 brew cleanup
+
+################
+
+cd ~
+rm -rf dotfiles
+git clone git@github.com:AlJohri/dotfiles.git
+# mkdir -p ~/.pip # configure pip
+# mkdir -p ~/.vim # TODO: vim plugins, vundle, etc.
+
+cd dotfiles
+
+ln -fs `pwd`/templates/commonrc ~/.commonrc
+ln -fs `pwd`/templates/vimrc ~/.vimrc
+ln -fs `pwd`/templates/gitconfig ~/.gitconfig
+ln -fs `pwd`/templates/gemrc ~/.gemrc
+# ln -fs `pwd`/templates/pip.conf ~/.pip/pip.conf (seemingly download_cache is now deprecated)
+ln -fs `pwd`/templates/gitignore ~/.gitignore
+ln -fs `pwd`/templates/agignore ~/.agignore
+
+append_to_zshrc 'source ~/.commonrc'
