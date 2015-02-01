@@ -138,6 +138,7 @@ brew_cask_install_or_upgrade 'launchrocket'
 brew_cask_install_or_upgrade 'fritzing'
 brew_cask_install_or_upgrade 'flip4mac'
 brew_cask_install_or_upgrade 'skim'
+brew_cask_install_or_upgrade 'boom'
 
 # Personal PVR
 brew_cask_install_or_upgrade 'plex-media-server'
