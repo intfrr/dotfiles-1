@@ -1,10 +1,18 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export WORKON_HOME=~/.envs
 export ANDROID_HOME=/usr/local/opt/android-sdk
+# export ANDROID_SDK_ROOT=ANDROID_HOME/24.0.2
+
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# launchctl `echo setenv JAVA_HOME $JAVA_HOME`
+
+# launchctl `echo setenv ANDROID_SDK_ROOT $ANDROID_SDK_ROOT`
+
+# export PATH=$PATH:/usr/local/share/john
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-if which pyenv > /dev/null; then eval "$(pyenv virtualenvwrapper)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv virtualenvwrapper_lazy)"; fi
 
 # eval "$(rbenv init - zsh --no-rehash)"
 
@@ -19,3 +27,14 @@ fi
 export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
 export RSTUDIO_WHICH_R=/usr/local/bin/R
 launchctl `echo setenv RSTUDIO_WHICH_R $RSTUDIO_WHICH_R`
+
+# eval `/usr/libexec/path_helper -s`
+
+alias ff='find . -type f -name'
+alias fd='find . -type d -name'
+
+# safe file management
+alias cp='cp -iv'
+alias rm='rm -i'
+alias mv='mv -i'
+
