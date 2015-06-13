@@ -1,39 +1,6 @@
 #!/bin/bash
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | awk '/\(\) *{/ , /^}/')"
-
-brew_expand_alias() {
-  brew info "$1" 2>/dev/null | head -1 | awk '{gsub(/.*\//, ""); gsub(/:/, ""); print $1}'
-}
-
-brew_cask_install_or_upgrade() {
-    if brew_cask_is_installed "$1"; then
-        fancy_echo "Already using a version of cask %s. Upgrading not implemented. Skipping ..." "$1"
-    else
-        brew cask install --appdir="/Applications" "$@"
-    fi
-}
-
-brew_cask_is_installed() {
-    local NAME=$(brew_cask_expand_alias "$1")
-    brew cask list -1 | grep -Fqx "$NAME"
-}
-
-brew_cask_expand_alias() {
-    brew cask info "$1" 2>/dev/null | head -1 | awk '{gsub(/.*\//, ""); gsub(/:/, ""); print $1}'
-}
-
-brew_tap_is_tapped() {
-    brew tap | grep -Fqx $1
-}
-
-brew_tap() {
-    if brew_tap_is_tapped "$1"; then
-        fancy_echo "Already tapped %s. Skipping ..." "$1"
-    else
-        brew tap $1
-    fi
-}
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/functions.bash)"
 
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
@@ -278,8 +245,6 @@ brew_install_or_upgrade 'nvm'
 node_version="0.12.4"
 mkdir -p "$HOME/.nvm"
 cp $(brew --prefix nvm)/nvm-exec "$HOME/.nvm/"
-append_to_zshrc 'export NVM_DIR=~/.nvm'
-append_to_zshrc 'source $(brew --prefix nvm)/nvm.sh' 1
 source "$(brew --prefix nvm)/nvm.sh"
 nvm install "$node_version"
 fancy_echo "Setting $node_version as the global default nodejs..."
