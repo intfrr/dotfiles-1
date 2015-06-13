@@ -331,6 +331,7 @@ pip install --upgrade pip
 pip install virtualenv
 pip install virtualenv-clone
 pip install virtualenvwrapper
+pip install pygments
 
 ################
 
