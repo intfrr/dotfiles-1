@@ -15,8 +15,8 @@ fi
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     ssh-keygen -t rsa -C "al.johri@gmail.com"
     eval "$(ssh-agent -s)"
-    ssh-add $HOME/.ssh/id_rsa
-    pbcopy < $HOME/.ssh/id_rsa.pub
+    ssh-add "$HOME/.ssh/id_rsa"
+    pbcopy < "$HOME/.ssh/id_rsa.pub"
     open https://github.com/settings/ssh
 fi
 
@@ -244,7 +244,7 @@ brew_install_or_upgrade 'nvm'
 
 node_version="0.12.4"
 mkdir -p "$HOME/.nvm"
-cp $(brew --prefix nvm)/nvm-exec "$HOME/.nvm/"
+cp "$(brew --prefix nvm)/nvm-exec" "$HOME/.nvm/"
 source "$(brew --prefix nvm)/nvm.sh"
 nvm install "$node_version"
 fancy_echo "Setting $node_version as the global default nodejs..."
@@ -308,12 +308,12 @@ SHELLS_FILE=$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/
 
 if [ "x$SHELLS_FILE" != "x$(cat /etc/shells)" ]; then
   fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
-  sudo sh -c '$SHELLS_FILE > /etc/shells'
+  sudo sh -c "echo '$SHELLS_FILE' > /etc/shells"
 fi
 
-REALSHELL=$(dscl . -read /Users/$USER/ UserShell | awk '{ print $2 }')
+REALSHELL=$(dscl . -read "/Users/$USER/" UserShell | awk '{ print $2 }')
 
-if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
+if [ "$REALSHELL" != "/usr/local/bin/zsh" ]; then
     fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
     fancy_echo "Changing your $REALSHELL shell to /usr/local/bin/zsh ..."
     chsh -s "$(which zsh)"
@@ -334,11 +334,11 @@ fi
 cd dotfiles
 
 fancy_echo "Symlinking various configuration files into home directory"
-ln -fs `pwd`/templates/commonrc ~/.commonrc
-ln -fs `pwd`/templates/vimrc ~/.vimrc
-ln -fs `pwd`/templates/gitconfig ~/.gitconfig
-ln -fs `pwd`/templates/gemrc ~/.gemrc
-ln -fs `pwd`/templates/gitignore ~/.gitignore
-ln -fs `pwd`/templates/agignore ~/.agignore
+ln -fs "$(pwd)/templates/commonrc" ~/.commonrc
+ln -fs "$(pwd)/templates/vimrc" ~/.vimrc
+ln -fs "$(pwd)/templates/gitconfig" ~/.gitconfig
+ln -fs "$(pwd)/templates/gemrc" ~/.gemrc
+ln -fs "$(pwd)/templates/gitignore" ~/.gitignore
+ln -fs "$(pwd)/templates/agignore" ~/.agignore
 
 append_to_zshrc 'source ~/.commonrc'
