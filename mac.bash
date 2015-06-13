@@ -2,6 +2,10 @@
 
 source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | awk '/\(\) *{/ , /^}/')"
 
+brew_expand_alias() {
+  brew info "$1" 2>/dev/null | head -1 | awk '{gsub(/.*\//, ""); gsub(/:/, ""); print $1}'
+}
+
 brew_cask_install_or_upgrade() {
     if brew_cask_is_installed "$1"; then
         fancy_echo "Already using a version of cask %s. Upgrading not implemented. Skipping ..." "$1"
@@ -16,7 +20,7 @@ brew_cask_is_installed() {
 }
 
 brew_cask_expand_alias() {
-    brew cask info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
+    brew cask info "$1" 2>/dev/null | head -1 | awk '{gsub(/.*\//, ""); gsub(/:/, ""); print $1}'
 }
 
 brew_tap_is_tapped() {
@@ -35,6 +39,8 @@ trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
 set -e
 
+cd ~
+
 if [ ! -f "$HOME/.zshrc" ]; then
   touch "$HOME/.zshrc"
 fi
@@ -46,6 +52,8 @@ if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     pbcopy < $HOME/.ssh/id_rsa.pub
     open https://github.com/settings/ssh
 fi
+
+################
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
@@ -65,17 +73,17 @@ fi
 fancy_echo "Updating Homebrew formulas ..."
 brew update
 
-
 brew_tap 'homebrew/dupes'
 brew_tap 'homebrew/versions'
 brew_tap 'homebrew/science'
 brew_tap 'homebrew/php'
+brew_tap 'homebrew/binary'
 brew_tap 'caskroom/cask'
 brew_tap 'caskroom/versions'
 brew_tap 'caskroom/fonts'
-brew_tap 'telemachus/homebrew-desc'
+brew_tap 'telemachus/desc'
 
-brew_install_or_upgrade 'caskroom/cask/brew-cask'
+brew_install_or_upgrade 'brew-cask'
 
 # [Brew Cask] Essentials
 brew_cask_install_or_upgrade 'google-chrome-beta'
@@ -107,7 +115,8 @@ brew_cask_install_or_upgrade 'vagrant'
 brew_cask_install_or_upgrade 'sequel-pro'
 brew_cask_install_or_upgrade 'google-refine'
 brew_cask_install_or_upgrade 'macfusion'
-brew_cask_install_or_upgrade 'genymotion'
+# brew_cask_install_or_upgrade 'genymotion'
+# brew_cask_install_or_upgrade 'andy' # andyroid
 brew_cask_install_or_upgrade 'android-studio'
 brew_cask_install_or_upgrade 'arduino'
 brew_cask_install_or_upgrade 'java'
@@ -119,6 +128,7 @@ brew_cask_install_or_upgrade 'xquartz'
 brew_cask_install_or_upgrade 'android-file-transfer'
 brew_cask_install_or_upgrade 'balsamiq-mockups'
 brew_cask_install_or_upgrade 'transmission'
+brew_cask_install_or_upgrade 'sabnzbd'
 brew_cask_install_or_upgrade 'airserver'
 brew_cask_install_or_upgrade 'licecap'
 brew_cask_install_or_upgrade 'colloquy'
@@ -129,7 +139,7 @@ brew_cask_install_or_upgrade 'bartender'
 brew_cask_install_or_upgrade 'alfred'
 brew_cask_install_or_upgrade 'cheatsheet'
 brew_cask_install_or_upgrade 'ccleaner'
-brew_cask_install_or_upgrade 'lingon-x'
+# brew_cask_install_or_upgrade 'lingon-x'
 brew_cask_install_or_upgrade 'seashore'
 brew_cask_install_or_upgrade 'geektool'
 brew_cask_install_or_upgrade 'menumeters'
@@ -137,16 +147,15 @@ brew_cask_install_or_upgrade 'launchrocket'
 brew_cask_install_or_upgrade 'fritzing'
 brew_cask_install_or_upgrade 'flip4mac'
 brew_cask_install_or_upgrade 'skim'
-brew_cask_install_or_upgrade 'boom'
 
 # Personal PVR
-brew_cask_install_or_upgrade 'plex-media-server'
-brew_install_or_upgrade 'sickbeard'
-brew_install_or_upgrade 'couchpotatoserver'
-brew_install_or_upgrade 'headphones'
-brew_launchctl_restart 'sickbeard'
-brew_launchctl_restart 'couchpotatoserver'
-brew_launchctl_restart 'headphones'
+# brew_cask_install_or_upgrade 'plex-media-server'
+# brew_install_or_upgrade 'sickbeard'
+# brew_install_or_upgrade 'couchpotatoserver'
+# brew_install_or_upgrade 'headphones'
+# brew_launchctl_restart 'sickbeard'
+# brew_launchctl_restart 'couchpotatoserver'
+# brew_launchctl_restart 'headphones'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
@@ -176,6 +185,7 @@ brew_install_or_upgrade 'watch'
 brew_install_or_upgrade 'md5sha1sum'
 brew_install_or_upgrade 'pigz'
 brew_install_or_upgrade 'bzip2'
+brew_install_or_upgrade 'shellcheck'
 
 brew_install_or_upgrade 'docker'
 brew_install_or_upgrade 'boot2docker'
@@ -195,7 +205,7 @@ brew_install_or_upgrade 'tree'
 brew_install_or_upgrade 'vim' '--override-system-vi' '--enable-pythoninterp'
 brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
-brew_install_or_upgrade 'rsync'
+brew_install_or_upgrade 'homebrew/dupes/rsync'
 brew_install_or_upgrade 'colordiff'
 brew_install_or_upgrade 'memtester'
 brew_install_or_upgrade 'tig'
@@ -223,9 +233,10 @@ brew_install_or_upgrade 'graphviz'
 brew_install_or_upgrade 'android-sdk'
 brew_install_or_upgrade 'openssl'
 brew_install_or_upgrade 'libyaml'
+brew_install_or_upgrade 'libspotify'
 
 # Languages and Compilers
-brew_install_or_upgrade 'php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp'
+brew_install_or_upgrade 'php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
 brew_install_or_upgrade 'r' '--with-openblas'
 brew_install_or_upgrade 'go' '--cross-compile-all'
 brew_install_or_upgrade 'ghc'
@@ -255,13 +266,19 @@ brew_launchctl_restart 'memcached'
 brew_launchctl_restart 'rabbitmq'
 
 brew_install_or_upgrade 'heroku-toolbelt'
+heroku plugins:install https://github.com/heroku/heroku-repo.git
+heroku plugins:install git://github.com/ddollar/heroku-config.git
 
 ################
 
+brew uninstall --force node
+
 brew_install_or_upgrade 'nvm'
 
-node_version="0.10"
-append_to_zshrc 'export PATH="$PATH:/usr/local/lib/node_modules"'
+node_version="0.12.4"
+mkdir -p "$HOME/.nvm"
+cp $(brew --prefix nvm)/nvm-exec "$HOME/.nvm/"
+append_to_zshrc 'export NVM_DIR=~/.nvm'
 append_to_zshrc 'source $(brew --prefix nvm)/nvm.sh' 1
 source "$(brew --prefix nvm)/nvm.sh"
 nvm install "$node_version"
@@ -269,6 +286,8 @@ fancy_echo "Setting $node_version as the global default nodejs..."
 nvm alias default "$node_version"
 
 ################
+
+brew uninstall --force ruby
 
 brew_install_or_upgrade 'rbenv'
 brew_install_or_upgrade 'ruby-build'
@@ -293,10 +312,12 @@ fancy_echo "Configuring Bundler ..."
 
 ################
 
+brew uninstall --force python
+
 brew_install_or_upgrade 'pyenv'
 brew_install_or_upgrade 'pyenv-virtualenvwrapper'
 
-python_version="2.7.9"
+python_version="2.7.10"
 eval "$(pyenv init -)"
 
 if ! pyenv versions | grep -Fq "$python_version"; then
@@ -306,6 +327,7 @@ fi
 pyenv global "$python_version"
 pyenv shell "$python_version"
 
+pip install --upgrade pip
 pip install virtualenv
 pip install virtualenv-clone
 pip install virtualenvwrapper
@@ -316,8 +338,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
 
-fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
-sudo cp `pwd`/templates/shells /etc/shells
+SHELLS_FILE=$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/templates/shells)
+
+if [ "x$SHELLS_FILE" != "x$(cat /etc/shells)" ]; then
+  fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
+  sudo sh -c '$SHELLS_FILE > /etc/shells'
+fi
 
 REALSHELL=$(dscl . -read /Users/$USER/ UserShell | awk '{ print $2 }')
 
@@ -327,23 +353,25 @@ if [ $REALSHELL != "/usr/local/bin/zsh" ]; then
     chsh -s "$(which zsh)"
 fi
 
+fancy_echo "Brew Cleanup"
 brew cleanup
 
 ################
 
-cd ~
-rm -rf dotfiles
-git clone git@github.com:AlJohri/dotfiles.git
-# mkdir -p ~/.pip # configure pip
-# mkdir -p ~/.vim # TODO: vim plugins, vundle, etc.
+cd "$HOME"
+
+if [ ! -d "$HOME/dotfiles" ]; then
+  fancy_echo "Cloning dotilfes into home directory"
+  git clone git@github.com:AlJohri/dotfiles.git
+fi
 
 cd dotfiles
 
+fancy_echo "Symlinking various configuration files into home directory"
 ln -fs `pwd`/templates/commonrc ~/.commonrc
 ln -fs `pwd`/templates/vimrc ~/.vimrc
 ln -fs `pwd`/templates/gitconfig ~/.gitconfig
 ln -fs `pwd`/templates/gemrc ~/.gemrc
-# ln -fs `pwd`/templates/pip.conf ~/.pip/pip.conf (seemingly download_cache is now deprecated)
 ln -fs `pwd`/templates/gitignore ~/.gitignore
 ln -fs `pwd`/templates/agignore ~/.agignore
 

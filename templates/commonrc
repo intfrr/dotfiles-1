@@ -1,3 +1,10 @@
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+export PATH="$PATH:/usr/local/lib/node_modules"
+export PATH="$PATH:/usr/texbin"
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export WORKON_HOME=~/.envs
 export ANDROID_HOME=/usr/local/opt/android-sdk
@@ -11,14 +18,15 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 # export PATH=$PATH:/usr/local/share/john
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash zsh)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv virtualenvwrapper_lazy)"; fi
-
-# eval "$(rbenv init - zsh --no-rehash)"
+source $(brew --prefix nvm)/nvm.sh
 
 alias dog='pygmentize -g'
 eval "$(gh alias -s)"
 alias findf='mdfind -onlyin . -name'
+alias ff='find . -type f -name'
+alias fd='find . -type d -name'
 
 if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
    disable r
@@ -26,15 +34,15 @@ fi
 
 export R_HOME=`Rscript -e "R.home(component = 'home')" | awk -F'"' '{print $2}'`
 export RSTUDIO_WHICH_R=/usr/local/bin/R
-launchctl `echo setenv RSTUDIO_WHICH_R $RSTUDIO_WHICH_R`
+# launchctl `echo setenv RSTUDIO_WHICH_R $RSTUDIO_WHICH_R`
 
 # eval `/usr/libexec/path_helper -s`
-
-alias ff='find . -type f -name'
-alias fd='find . -type d -name'
 
 # safe file management
 alias cp='cp -iv'
 alias rm='rm -i'
 alias mv='mv -i'
 
+# pyenv hack
+# https://github.com/yyuu/pyenv/issues/106
+alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
