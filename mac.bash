@@ -205,7 +205,7 @@ brew_install_or_upgrade 'libspotify'
 
 # Languages and Compilers
 brew_install_or_upgrade 'php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
-brew_install_or_upgrade 'r' '--with-openblas'
+brew_install_or_upgrade 'r' #'--with-openblas'
 brew_install_or_upgrade 'go' '--cross-compile-all'
 brew_install_or_upgrade 'ghc'
 brew_install_or_upgrade 'lua' '--with-completion'
