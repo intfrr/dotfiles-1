@@ -49,6 +49,9 @@ fi
 
 #########################
 
+# alias grep="/usr/local/bin/grep $GREP_OPTIONS"
+# unset GREP_OPTIONS
+
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 alias dog='pygmentize -g'

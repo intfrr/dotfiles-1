@@ -40,80 +40,80 @@ fi
 fancy_echo "Updating Homebrew formulas ..."
 brew update
 
-brew_tap 'homebrew/dupes'
-brew_tap 'homebrew/versions'
-brew_tap 'homebrew/science'
-brew_tap 'homebrew/php'
-brew_tap 'homebrew/binary'
-brew_tap 'caskroom/cask'
-brew_tap 'caskroom/versions'
-brew_tap 'caskroom/fonts'
-brew_tap 'telemachus/desc'
+brew_tap 'homebrew/dupes' # apps that are all provided b OS X
+brew_tap 'homebrew/versions' # multiple versions of existing packages
+brew_tap 'homebrew/science' # scientific packages
+brew_tap 'homebrew/php' # php related packages
+brew_tap 'homebrew/binary' # closed-source packages with only binaries
+brew_tap 'caskroom/cask' # gui applications
+brew_tap 'caskroom/versions' # multiple versions of existing gui applications
+brew_tap 'caskroom/fonts' # fonts
 
-brew_install_or_upgrade 'brew-cask'
+brew_install_or_upgrade 'caskroom/cask/brew-cask'
 
 # [Brew Cask] Essentials
-brew_cask_install_or_upgrade 'google-chrome-beta'
-brew_cask_install_or_upgrade 'firefox-beta'
-brew_cask_install_or_upgrade 'logitech-control-center'
-brew_cask_install_or_upgrade 'logitech-unifying'
-brew_cask_install_or_upgrade 'sizeup'
-brew_cask_install_or_upgrade 'cinch'
-brew_cask_install_or_upgrade 'iterm2-nightly'
-brew_cask_install_or_upgrade 'sublime-text3'
-brew_cask_install_or_upgrade 'the-unarchiver'
-brew_cask_install_or_upgrade 'evernote'
-brew_cask_install_or_upgrade 'atom'
-brew_cask_install_or_upgrade 'insync'
-brew_cask_install_or_upgrade 'dropbox'
-brew_cask_install_or_upgrade 'skype'
-brew_cask_install_or_upgrade 'google-hangouts'
-brew_cask_install_or_upgrade 'slack'
-brew_cask_install_or_upgrade 'mailbox'
-brew_cask_install_or_upgrade 'spotify'
-brew_cask_install_or_upgrade 'vlc'
-brew_cask_install_or_upgrade 'caffeine'
-brew_cask_install_or_upgrade 'calibre'
-brew_cask_install_or_upgrade 'xtrafinder'
+brew_cask_install_or_upgrade 'google-chrome-canary' # bleeding edge daily updates
+brew_cask_install_or_upgrade 'google-chrome-dev' # more stable than canary
+brew_cask_install_or_upgrade 'firefoxdeveloperedition' # ff developer edition
+brew_cask_install_or_upgrade 'logitech-control-center' # to program mouse butons
+brew_cask_install_or_upgrade 'logitech-unifying' # for mouse + keyboard
+brew_cask_install_or_upgrade 'sizeup' # snap windows by mouse
+brew_cask_install_or_upgrade 'cinch' # control window placement via hotkeys
+brew_cask_install_or_upgrade 'iterm2-nightly' # terminal emulator
+brew_cask_install_or_upgrade 'sublime-text3' # code editor
+brew_cask_install_or_upgrade 'atom' # another code editor
+brew_cask_install_or_upgrade 'the-unarchiver' # better unarchiving tool
+brew_cask_install_or_upgrade 'evernote' # note taker
+brew_cask_install_or_upgrade 'insync' # sync google drive documents
+brew_cask_install_or_upgrade 'dropbox' # sync files
+brew_cask_install_or_upgrade 'skype' # video chat
+brew_cask_install_or_upgrade 'google-hangouts' # also video chat
+brew_cask_install_or_upgrade 'slack' # team communication
+brew_cask_install_or_upgrade 'mailbox' # mail app from dropbox with gestures
+brew_cask_install_or_upgrade 'spotify' # streaming music player
+brew_cask_install_or_upgrade 'vlc' # video player
+brew_cask_install_or_upgrade 'caffeine' # prevent computer from going to sleep
+brew_cask_install_or_upgrade 'calibre' # ebook manager
+brew_cask_install_or_upgrade 'xtrafinder' # CMD-X for cut
+brew_cask_install_or_upgrade 'chromecast'
 
 # [Brew Cask] Development
-brew_cask_install_or_upgrade 'virtualbox'
-brew_cask_install_or_upgrade 'vagrant'
-brew_cask_install_or_upgrade 'sequel-pro'
-brew_cask_install_or_upgrade 'google-refine'
-brew_cask_install_or_upgrade 'macfusion'
-# brew_cask_install_or_upgrade 'genymotion'
-# brew_cask_install_or_upgrade 'andy' # andyroid
-brew_cask_install_or_upgrade 'android-studio'
+brew_cask_install_or_upgrade 'virtualbox' # virtual os / emulators
+brew_cask_install_or_upgrade 'vagrant' # package virtual envs for development
+brew_cask_install_or_upgrade 'sequel-pro' # mysql gui
+brew_cask_install_or_upgrade 'google-refine' # dedupe datasets
+brew_cask_install_or_upgrade 'macfusion' # use sublime via ssh (sshfs)
+# brew_cask_install_or_upgrade 'genymotion' # android emulator
+# brew_cask_install_or_upgrade 'andy' # another android emulator
 brew_cask_install_or_upgrade 'arduino'
-brew_cask_install_or_upgrade 'java'
-brew_cask_install_or_upgrade 'rstudio'
+brew_cask_install_or_upgrade 'java' # jdk
 brew_cask_install_or_upgrade 'weka'
 brew_cask_install_or_upgrade 'xquartz'
 
 # [Brew Cask] Other
 brew_cask_install_or_upgrade 'android-file-transfer'
 brew_cask_install_or_upgrade 'balsamiq-mockups'
-brew_cask_install_or_upgrade 'transmission'
-brew_cask_install_or_upgrade 'sabnzbd'
+brew_cask_install_or_upgrade 'transmission' # torrents
+brew_cask_install_or_upgrade 'sabnzbd' # usenet
 brew_cask_install_or_upgrade 'airserver'
-brew_cask_install_or_upgrade 'licecap'
-brew_cask_install_or_upgrade 'colloquy'
-brew_cask_install_or_upgrade 'mou'
-brew_cask_install_or_upgrade 'audacity'
-brew_cask_install_or_upgrade 'karabiner'
-brew_cask_install_or_upgrade 'bartender'
-brew_cask_install_or_upgrade 'alfred'
+brew_cask_install_or_upgrade 'licecap' # gif creator
+brew_cask_install_or_upgrade 'colloquy' # irc chat client
+brew_cask_install_or_upgrade 'haroopad' # markdown editor
+brew_cask_install_or_upgrade 'audacity' # audio recording
+brew_cask_install_or_upgrade 'karabiner' # faster key strokes
+brew_cask_install_or_upgrade 'bartender' # organize your menu bar apps
+# brew_cask_install_or_upgrade 'alfred' # spotlight replacement
 brew_cask_install_or_upgrade 'cheatsheet'
 brew_cask_install_or_upgrade 'ccleaner'
-# brew_cask_install_or_upgrade 'lingon-x'
-brew_cask_install_or_upgrade 'seashore'
-brew_cask_install_or_upgrade 'geektool'
-brew_cask_install_or_upgrade 'menumeters'
-brew_cask_install_or_upgrade 'launchrocket'
-brew_cask_install_or_upgrade 'fritzing'
-brew_cask_install_or_upgrade 'flip4mac'
-brew_cask_install_or_upgrade 'skim'
+# brew_cask_install_or_upgrade 'lingon-x' # gui for start up services
+brew_cask_install_or_upgrade 'seashore' # ms paint
+brew_cask_install_or_upgrade 'paintbrush' # another ms paint
+brew_cask_install_or_upgrade 'geektool' # rainmeter for mac
+brew_cask_install_or_upgrade 'menumeters' # display stats in menu
+#   brew_cask_install_or_upgrade 'launchrocket' # control homebrew services
+brew_cask_install_or_upgrade 'fritzing' # electrical circuit diagram / breadboard
+brew_cask_install_or_upgrade 'flip4mac' # play windows media on mac
+brew_cask_install_or_upgrade 'skim' # very nice pdf viewer for note taking
 
 # Personal PVR
 # brew_cask_install_or_upgrade 'plex-media-server'
@@ -126,37 +126,17 @@ brew_cask_install_or_upgrade 'skim'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
-brew_cask_install_or_upgrade 'qlcolorcode'
+brew_cask_install_or_upgrade 'qlcolorcode' # syntax highlighting
 brew_cask_install_or_upgrade 'qlstephen'
-brew_cask_install_or_upgrade 'qlmarkdown'
-brew_cask_install_or_upgrade 'quicklook-json'
-brew_cask_install_or_upgrade 'qlprettypatch'
-brew_cask_install_or_upgrade 'quicklook-csv'
-brew_cask_install_or_upgrade 'betterzipql'
+brew_cask_install_or_upgrade 'qlmarkdown' # markdown
+brew_cask_install_or_upgrade 'quicklook-json' # json
+brew_cask_install_or_upgrade 'qlprettypatch' # patch files
+brew_cask_install_or_upgrade 'quicklook-csv' # csv
+brew_cask_install_or_upgrade 'betterzipql' # zip
 brew_cask_install_or_upgrade 'webpquicklook'
-brew_cask_install_or_upgrade 'suspicious-package'
+brew_cask_install_or_upgrade 'suspicious-package' # pkg files
 brew_cask_install_or_upgrade 'provisionql'
-brew_cask_install_or_upgrade 'cert-quicklook'
-
-brew_install_or_upgrade 'coreutils'
-brew_install_or_upgrade 'moreutils'
-brew_install_or_upgrade 'findutils' '--with-default-names'
-brew_install_or_upgrade 'gnu-sed' '--with-default-names'
-brew_install_or_upgrade 'wget' '--with-iri'
-brew_install_or_upgrade 'pcre'
-brew_install_or_upgrade 'grep' '--with-default-names'
-brew_install_or_upgrade 'ack'
-brew_install_or_upgrade 'lynx'
-brew_install_or_upgrade 'rename'
-brew_install_or_upgrade 'watch'
-brew_install_or_upgrade 'md5sha1sum'
-brew_install_or_upgrade 'pigz'
-brew_install_or_upgrade 'bzip2'
-brew_install_or_upgrade 'shellcheck'
-brew_install_or_upgrade 'git-flow'
-
-brew_install_or_upgrade 'docker'
-brew_install_or_upgrade 'boot2docker'
+brew_cask_install_or_upgrade 'cert-quicklook' # certificates
 
 # Misc
 brew_install_or_upgrade 'jack'
@@ -171,60 +151,83 @@ brew_install_or_upgrade 'zsh' '--disable-etcdir'
 brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'tree'
 brew_install_or_upgrade 'vim' '--override-system-vi' '--enable-pythoninterp'
+brew_install_or_upgrade 'colordiff' # color plain diff output
+brew_install_or_upgrade 'memtester'
+brew_install_or_upgrade 'ngrok' # local tunnel
+brew_install_or_upgrade 'ack' # search tool like grep, but optimized for programmers
+brew_install_or_upgrade 'lynx' # text only browser
+brew_install_or_upgrade 'shellcheck'
+brew_install_or_upgrade 'moreutils' # cool cmdline utilites like sponge
+brew_install_or_upgrade 'wget' '--with-iri'
+brew_install_or_upgrade 'pcre' # perl-compatible Regular Expressions
+brew_install_or_upgrade 'rename' # Perl-powered file rename script
+brew_install_or_upgrade 'watch'
+brew_install_or_upgrade 'md5sha1sum'
+brew_install_or_upgrade 'pigz' # parallel implementation of gzip
+brew_install_or_upgrade 'docker' # containers
+brew_install_or_upgrade 'boot2docker' # script to boot docker on mac os x
+
+# Version Control
 brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'mercurial'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
-brew_install_or_upgrade 'homebrew/dupes/rsync'
-brew_install_or_upgrade 'colordiff'
-brew_install_or_upgrade 'memtester'
-brew_install_or_upgrade 'tig'
-brew_install_or_upgrade 'gh'
-brew_install_or_upgrade 'ngrok'
+brew_install_or_upgrade 'tig' # text interface git
+brew_install_or_upgrade 'git-flow'
+brew_install_or_upgrade 'gh' # or hub??
+brew_cask_install_or_upgrade 'sourcetree'
+
+# Homebrew Dupes and GNU Utils
+# (temporarly removed to determine which are necessary)
+# brew_install_or_upgrade 'coreutils'
+# brew_install_or_upgrade 'findutils' '--with-default-names'
+# brew_install_or_upgrade 'gnu-sed' '--with-default-names'
+# brew_install_or_upgrade 'homebrew/dupes/grep' '--with-default-names'
+# brew_install_or_upgrade 'homebrew/dupes/rsync'
+# brew_install_or_upgrade 'homebrew/dupes/gdb'
+# brew_install_or_upgrade 'homebrew/dupes/bzip2'
 
 # Libraries
-brew_install_or_upgrade 'qt'
-brew_install_or_upgrade 'tcl-tk'
+brew_install_or_upgrade 'qt' # qt gui framework
+brew_install_or_upgrade 'tcl-tk' # another gui framework
 brew_install_or_upgrade 'openssl'
 brew_install_or_upgrade 'libxml2' '--with-python'
 brew_install_or_upgrade 'libxslt'
 brew_install_or_upgrade 'ctags'
-brew_install_or_upgrade 'reattach-to-user-namespace'
+brew_install_or_upgrade 'reattach-to-user-namespace' # Reattach process (e.g., tmux) to background
+brew_install_or_upgrade 'graphviz'
+brew_install_or_upgrade 'libyaml'
+
+# Image, Music, Video Libararies
 brew_install_or_upgrade 'imagemagick' '--with-fontconfig' '--with-ghostscript' '--with-jp2' '--with-librsvg' '--with-libtiff' '--with-webp'
-brew_install_or_upgrade 'freetype'
-brew_install_or_upgrade 'libpng'
-brew_install_or_upgrade 'jpeg'
-brew_install_or_upgrade 'libtiff'
 brew_install_or_upgrade 'lame'
 brew_install_or_upgrade 'libogg'
 brew_install_or_upgrade 'libvorbis'
 brew_install_or_upgrade 'x264'
-brew_install_or_upgrade 'graphviz'
-brew_install_or_upgrade 'android-sdk'
-brew_install_or_upgrade 'openssl'
-brew_install_or_upgrade 'libyaml'
 brew_install_or_upgrade 'libspotify'
 
-# Languages and Compilers
-brew_install_or_upgrade 'php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
-brew_install_or_upgrade 'r' #'--with-openblas'
+# Languages, Compilers, and SDKs
+brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
+brew_install_or_upgrade 'homebrew/science/r' #'--with-openblas'
+brew_cask_install_or_upgrade 'rstudio' # gui for R
 brew_install_or_upgrade 'go' '--cross-compile-all'
 brew_install_or_upgrade 'ghc'
 brew_install_or_upgrade 'lua' '--with-completion'
 brew_install_or_upgrade 'gcc' '--with-all-languages'
-brew_install_or_upgrade 'apple-gcc42'
-brew_install_or_upgrade 'gdb'
+brew_install_or_upgrade 'homebrew/dupes/apple-gcc42'
+brew_install_or_upgrade 'android-sdk'
+brew_cask_install_or_upgrade 'android-studio' # gui for android development
 
-# Databases
+# Databases and Document Stores
 brew_install_or_upgrade 'mysql' # '--enable-memcached' https://github.com/Homebrew/homebrew/issues/33448
-brew_install_or_upgrade 'postgresql' '--with-python'
-brew_install_or_upgrade 'sqlite' '--with-functions'
-brew_install_or_upgrade 'mongodb' '--with-openssl'
-brew_install_or_upgrade 'redis'
-brew_install_or_upgrade 'elasticsearch'
+brew_install_or_upgrade 'postgresql' '--with-python' # sql database
+brew_install_or_upgrade 'sqlite' '--with-functions' # sql datbase
+brew_install_or_upgrade 'mongodb' '--with-openssl' # nosql document store
+brew_install_or_upgrade 'redis' # in memory key value data store
+brew_install_or_upgrade 'elasticsearch' # document search based on lucene
+brew_install_or_upgrade 'solr' # document search based on lucene
 brew_install_or_upgrade 'memcached'
-brew_install_or_upgrade 'rabbitmq'
-brew_install_or_upgrade 'rabbitmq-c'
-brew_install_or_upgrade 'solr'
+brew_install_or_upgrade 'rabbitmq' # message queue / broker
+brew_install_or_upgrade 'rabbitmq-c' # message queue / broker
 
 brew_launchctl_restart 'mysql'
 brew_launchctl_restart 'postgresql'
@@ -234,11 +237,68 @@ brew_launchctl_restart 'elasticsearch'
 brew_launchctl_restart 'memcached'
 brew_launchctl_restart 'rabbitmq'
 
+# Heroku
 brew_install_or_upgrade 'heroku-toolbelt'
 heroku plugins:install https://github.com/heroku/heroku-repo.git
 heroku plugins:install git://github.com/ddollar/heroku-config.git
 
+fancy_echo "Brew Cleanup, Prune"
+brew cleanup
+brew prune
+
 ################
+
+# zsh + ohmyzsh
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  curl -L http://install.ohmyz.sh | sh
+  git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+  # brew_install_or_upgrade 'zsh-completions'
+  append_to_zshrc 'plugins+=(zsh-completions)'
+  append_to_zshrc 'autoload -U compinit && compinit'
+fi
+
+SHELLS_FILE=$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/templates/shells)
+
+if [ "x$SHELLS_FILE" != "x$(cat /etc/shells)" ]; then
+  fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
+  sudo sh -c "echo '$SHELLS_FILE' > /etc/shells"
+fi
+
+REALSHELL=$(dscl . -read "/Users/$USER/" UserShell | awk '{ print $2 }')
+
+if [ "$REALSHELL" != "/usr/local/bin/zsh" ]; then
+    fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
+    fancy_echo "Changing your $REALSHELL shell to /usr/local/bin/zsh ..."
+    chsh -s "$(which zsh)"
+fi
+
+################
+
+# Clone and Symlink Dotfiles
+
+cd "$HOME"
+
+if [ ! -d "$HOME/dotfiles" ]; then
+  fancy_echo "Cloning dotilfes into home directory"
+  git clone git@github.com:AlJohri/dotfiles.git
+fi
+
+cd dotfiles
+
+fancy_echo "Symlinking various configuration files into home directory"
+ln -fs "$(pwd)/templates/commonrc" ~/.commonrc
+ln -fs "$(pwd)/templates/vimrc" ~/.vimrc
+ln -fs "$(pwd)/templates/gitconfig" ~/.gitconfig
+ln -fs "$(pwd)/templates/gemrc" ~/.gemrc
+ln -fs "$(pwd)/templates/gitignore" ~/.gitignore
+ln -fs "$(pwd)/templates/agignore" ~/.agignore
+
+append_to_zshrc 'source ~/.commonrc'
+
+################
+
+# Node
 
 brew uninstall --force node
 
@@ -253,6 +313,8 @@ fancy_echo "Setting $node_version as the global default nodejs..."
 nvm alias default "$node_version"
 
 ################
+
+# Ruby
 
 brew uninstall --force ruby
 
@@ -281,6 +343,8 @@ rbenv rehash
 
 ################
 
+# Python
+
 brew uninstall --force python
 
 brew_install_or_upgrade 'pyenv'
@@ -301,56 +365,6 @@ pip install virtualenv
 pip install virtualenv-clone
 pip install virtualenvwrapper
 pip install pygments
-
-pyenv rehash
-
-################
-
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  curl -L http://install.ohmyz.sh | sh
-fi
-
-SHELLS_FILE=$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/templates/shells)
-
-if [ "x$SHELLS_FILE" != "x$(cat /etc/shells)" ]; then
-  fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
-  sudo sh -c "echo '$SHELLS_FILE' > /etc/shells"
-fi
-
-REALSHELL=$(dscl . -read "/Users/$USER/" UserShell | awk '{ print $2 }')
-
-if [ "$REALSHELL" != "/usr/local/bin/zsh" ]; then
-    fancy_echo "Switch to /usr/local/bin/zsh instead of /bin/zsh"
-    fancy_echo "Changing your $REALSHELL shell to /usr/local/bin/zsh ..."
-    chsh -s "$(which zsh)"
-fi
-
-fancy_echo "Brew Cleanup, Prune"
-brew cleanup
-brew prune
-
-################
-
-cd "$HOME"
-
-if [ ! -d "$HOME/dotfiles" ]; then
-  fancy_echo "Cloning dotilfes into home directory"
-  git clone git@github.com:AlJohri/dotfiles.git
-fi
-
-cd dotfiles
-
-fancy_echo "Symlinking various configuration files into home directory"
-ln -fs "$(pwd)/templates/commonrc" ~/.commonrc
-ln -fs "$(pwd)/templates/vimrc" ~/.vimrc
-ln -fs "$(pwd)/templates/gitconfig" ~/.gitconfig
-ln -fs "$(pwd)/templates/gemrc" ~/.gemrc
-ln -fs "$(pwd)/templates/gitignore" ~/.gitignore
-ln -fs "$(pwd)/templates/agignore" ~/.agignore
-
-append_to_zshrc 'source ~/.commonrc'
-
-################
 
 # Additional Python Dependencies
 
@@ -389,4 +403,8 @@ pip install --upgrade pygments
 pip install --upgrade lxml
 pip install --upgrade rodeo
 
+pyenv rehash
+
 python -m nltk.downloader all
+
+################
