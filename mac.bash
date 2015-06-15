@@ -172,6 +172,7 @@ brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'tree'
 brew_install_or_upgrade 'vim' '--override-system-vi' '--enable-pythoninterp'
 brew_install_or_upgrade 'svn'
+brew_install_or_upgrade 'mercurial'
 brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'homebrew/dupes/rsync'
 brew_install_or_upgrade 'colordiff'
@@ -273,8 +274,10 @@ gem update --system
 gem_install_or_update 'bundler'
 
 fancy_echo "Configuring Bundler ..."
-  number_of_cores=$(sysctl -n hw.ncpu)
-  bundle config --global jobs $((number_of_cores - 1))
+number_of_cores=$(sysctl -n hw.ncpu)
+bundle config --global jobs $((number_of_cores - 1))
+
+rbenv rehash
 
 ################
 
@@ -299,6 +302,8 @@ pip install virtualenv-clone
 pip install virtualenvwrapper
 pip install pygments
 
+pyenv rehash
+
 ################
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -320,8 +325,9 @@ if [ "$REALSHELL" != "/usr/local/bin/zsh" ]; then
     chsh -s "$(which zsh)"
 fi
 
-fancy_echo "Brew Cleanup"
+fancy_echo "Brew Cleanup, Prune"
 brew cleanup
+brew prune
 
 ################
 
@@ -343,3 +349,44 @@ ln -fs "$(pwd)/templates/gitignore" ~/.gitignore
 ln -fs "$(pwd)/templates/agignore" ~/.agignore
 
 append_to_zshrc 'source ~/.commonrc'
+
+################
+
+# Additional Python Dependencies
+
+# pygame
+brew_install_or_upgrade 'sdl'
+brew_install_or_upgrade 'sdl_image'
+brew_install_or_upgrade 'sdl_mixer'
+brew_install_or_upgrade 'sdl_ttf'
+brew_install_or_upgrade 'portmidi'
+pip install hg+http://bitbucket.org/pygame/pygame#egg=pygame
+
+# sip
+if [ $(python -c 'import sip' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; then
+  cd ~; wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.8/sip-4.16.8.tar.gz
+  tar -xvf sip-4.16.8.tar.gz
+  cd sip-4.16.8; python configure.py; make; make install
+  cd ~; rm sip-4.16.8.tar.gz; rm -rf sip-4.16.8
+fi
+
+# pyqt
+if [ $(python -c 'import PyQt4' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; then
+  cd ~; wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt-mac-gpl-4.11.4.tar.gz
+  tar -xvf PyQt-mac-gpl-4.11.4.tar.gz
+  cd PyQt-mac-gpl-4.11.4; python configure.py --confirm-license; make; make install
+  cd ~; rm PyQt-mac-gpl-4.11.3.tar.gz; rm -rf PyQt-mac-gpl-4.11.3
+fi
+
+pip install --upgrade numpy
+pip install --upgrade scipy
+pip install --upgrade scikit-learn
+pip install --upgrade nltk
+pip install --upgrade "ipython[notebook]"
+pip install --upgrade matplotlib
+pip install --upgrade requests
+pip install --upgrade pygments
+pip install --upgrade lxml
+pip install --upgrade rodeo
+
+python -m nltk.downloader all

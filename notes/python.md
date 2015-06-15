@@ -3,8 +3,14 @@
 ```
 # http://joernhees.de/blog/2013/06/08/mac-os-x-10-8-scientific-python-with-homebrew/
 
+# if doing brew install pygame i think??
+mv /usr/local/include/python2.7/pygame "/Users/atul/.pyenv/versions/$python_version/include/python2.7/"
+
 # how to install pygame on osx
 # https://bitbucket.org/pygame/pygame/issue/82/homebrew-on-leopard-fails-to-install#comment-627494
+# brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
+# pip install hg+http://bitbucket.org/pygame/pygame
+# cp -r pygame /Users/atul/.pyenv/versions/2.7.10/include/python2.7/
 
 # wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.4/sip-4.16.4.tar.gz
 # tar -xvf sip-4.16.4.tar.gz
@@ -31,4 +37,9 @@ pip install lxml
 python -m nltk.downloader all
 
 # http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
+```
+
+brew install opencv --without-numpy --without-python
+#brew uninstall homebrew/python/numpy
+```
 ```
