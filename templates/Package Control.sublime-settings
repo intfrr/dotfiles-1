@@ -1,0 +1,27 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Backbone.js",
+		"BracketHighlighter",
+		"Find Non ASCII Characters",
+		"GitGutter",
+		"Highlight",
+		"HTML Underscore Syntax",
+		"IntelliDocs",
+		"JSON Reindent",
+		"LaTeXTools",
+		"Markdown Extended",
+		"Markdown Preview",
+		"Monokai Extended",
+		"Package Control",
+		"Project Manager",
+		"Sass",
+		"SideBarEnhancements",
+		"TrailingSpaces",
+		"TypeScript",
+		"Unicode Character Highlighter"
+	]
+}

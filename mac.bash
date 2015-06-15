@@ -294,6 +294,14 @@ ln -fs "$(pwd)/templates/gemrc" ~/.gemrc
 ln -fs "$(pwd)/templates/gitignore" ~/.gitignore
 ln -fs "$(pwd)/templates/agignore" ~/.agignore
 
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
+if [ ! -f "$HOME/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package" ]; then
+  # http://stackoverflow.com/questions/19529999/add-package-control-in-sublime-text-3-through-the-command-line
+  fancy_echo "Installing Sublime Text 3 Package Manager"
+  wget https://sublime.wbond.net/Package%20Control.sublime-package -P "$HOME/Library/Application Support/Sublime Text 3/Installed Packages/"
+  ln -fs "$(pwd)/templates/Package Control.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+fi
+
 append_to_zshrc 'source ~/.commonrc'
 
 ################
