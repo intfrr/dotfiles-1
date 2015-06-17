@@ -51,6 +51,9 @@ brew_tap 'caskroom/fonts' # fonts
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 
+brew_install_or_upgrade 'openssl'
+brew unlink openssl && brew link openssl --force
+
 # [Brew Cask] Essentials
 brew_cask_install_or_upgrade 'google-chrome-canary' # bleeding edge daily updates
 brew_cask_install_or_upgrade 'google-chrome-dev' # more stable than canary
@@ -189,7 +192,6 @@ brew_cask_install_or_upgrade 'sourcetree'
 # Libraries
 brew_install_or_upgrade 'qt' # qt gui framework
 brew_install_or_upgrade 'tcl-tk' # another gui framework
-brew_install_or_upgrade 'openssl'
 brew_install_or_upgrade 'libxml2' '--with-python'
 brew_install_or_upgrade 'libxslt'
 brew_install_or_upgrade 'ctags'
