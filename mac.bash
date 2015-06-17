@@ -399,7 +399,7 @@ if [ $(python -c 'import PyQt4' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; th
   cd ~; wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt-mac-gpl-4.11.4.tar.gz
   tar -xvf PyQt-mac-gpl-4.11.4.tar.gz
   cd PyQt-mac-gpl-4.11.4; python configure.py --confirm-license; make; make install
-  cd ~; rm PyQt-mac-gpl-4.11.3.tar.gz; rm -rf PyQt-mac-gpl-4.11.3
+  cd ~; rm PyQt-mac-gpl-4.11.4.tar.gz; rm -rf PyQt-mac-gpl-4.11.4
 fi
 
 pip install --upgrade numpy
