@@ -331,7 +331,7 @@ brew uninstall --force ruby
 brew_install_or_upgrade 'rbenv'
 brew_install_or_upgrade 'ruby-build'
 
-ruby_version="2.2.0"
+ruby_version="2.2.2"
 eval "$(rbenv init -)"
 
 if ! rbenv versions | grep -Fq "$ruby_version"; then
