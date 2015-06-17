@@ -3,11 +3,14 @@
 Highly inspired by https://github.com/thoughtbot/laptop
 
 # Setup
+1. Run script
 ```
 xcode-select --install
 curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bash
 ```
-Install this manually:
+
+2. Install this manually:
+- XCode
 - iMovie
 - Garageband
 - Adobe CS6
@@ -16,3 +19,5 @@ Install this manually:
 - Stata
 - Macaw
 - Tex
+
+3. Create "Trello" via Fluid app.
