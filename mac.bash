@@ -4,6 +4,9 @@ source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotf
 
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
+fancy_echo "Get sudo access once for the rest of the script"
+sudo -v
+
 set -e
 
 cd ~
@@ -457,42 +460,41 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
-# Trackpad: enable tap to click for this user and for the login screen
+fancy_echo "Trackpad: enable tap to click for this user and for the login screen"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Trackpad: map bottom right corner to right-click
+fancy_echo "Trackpad: map bottom right corner to right-click"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
-# Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
+fancy_echo "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
+fancy_echo "Use scroll gesture with the Ctrl (^) modifier key to zoom"
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-# Follow the keyboard focus while zoomed in
+fancy_echo "Follow the keyboard focus while zoomed in"
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
-# Disable press-and-hold for keys in favor of key repeat
+fancy_echo "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a blazingly fast keyboard repeat rate
+fancy_echo "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
-# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+fancy_echo "Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons"
 defaults write com.apple.finder QuitMenuItem -bool true
 
-# Set Desktop as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
+fancy_echo "Set Desktop as the default location for new Finder windows"
+fancy_echo "For other paths, use PfLo and file:///full/path/here/"
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
-# Show icons for hard drives, servers, and removable media on the desktop
+fancy_echo "Show icons for hard drives, servers, and removable media on the desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
@@ -502,24 +504,24 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Safari & WebKit                                                             #
 ###############################################################################
 
-# Privacy: don’t send search queries to Apple
+fancy_echo "Privacy: don’t send search queries to Apple"
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
-# Press Tab to highlight each item on a web page
+fancy_echo "Press Tab to highlight each item on a web page"
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 
-# Show the full URL in the address bar (note: this still hides the scheme)
+fancy_echo "Show the full URL in the address bar (note: this still hides the scheme)"
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
-# Set Safari’s home page to `about:blank` for faster loading
+fancy_echo "Set Safari’s home page to about:blank for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
 
-# Prevent Safari from opening ‘safe’ files automatically after downloading
+fancy_echo "Prevent Safari from opening ‘safe’ files automatically after downloading"
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-# Enable the Develop menu and the Web Inspector in Safari
+fancy_echo "Enable the Develop menu and the Web Inspector in Safari"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
@@ -529,22 +531,22 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
 ###############################################################################
 
-# Enable the debug menu in Address Book
+fancy_echo "Enable the debug menu in Address Book"
 defaults write com.apple.addressbook ABShowDebugMenu -bool true
 
-# Enable Dashboard dev mode (allows keeping widgets on the desktop)
+fancy_echo "Enable Dashboard dev mode (allows keeping widgets on the desktop)"
 defaults write com.apple.dashboard devmode -bool true
 
-# Enable the debug menu in iCal (pre-10.8)
+fancy_echo "Enable the debug menu in iCal (pre-10.8)"
 defaults write com.apple.iCal IncludeDebugMenu -bool true
 
-# Use plain text mode for new TextEdit documents
+fancy_echo "Use plain text mode for new TextEdit documents"
 defaults write com.apple.TextEdit RichText -int 0
-# Open and save files as UTF-8 in TextEdit
+fancy_echo "Open and save files as UTF-8 in TextEdit"
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
-# Enable the debug menu in Disk Utility
+fancy_echo "Enable the debug menu in Disk Utility"
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
@@ -553,10 +555,10 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 # Mac App Store                                                               #
 ###############################################################################
 
-# Enable the WebKit Developer Tools in the Mac App Store
+fancy_echo "Enable the WebKit Developer Tools in the Mac App Store"
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
-# Enable Debug Menu in the Mac App Store
+fancy_echo "Enable Debug Menu in the Mac App Store"
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
 
@@ -564,44 +566,44 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 # Finder                                                                      #
 ###############################################################################
 
-# Finder: show status bar
+fancy_echo "Finder: show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# Finder: show path bar
+fancy_echo "Finder: show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Finder: allow text selection in Quick Look
+fancy_echo "Finder: allow text selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
-# Display full POSIX path as Finder window title
+fancy_echo "Display full POSIX path as Finder window title"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 ###############################################################################
 # Transmission.app                                                            #
 ###############################################################################
 
-# Don’t prompt for confirmation before downloading
+fancy_echo "Don’t prompt for confirmation before downloading"
 defaults write org.m0k.transmission DownloadAsk -bool false
 
-# Trash original torrent files
+fancy_echo "Trash original torrent files"
 defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 
-# Hide the donate message
+fancy_echo "Hide the donate message"
 defaults write org.m0k.transmission WarningDonate -bool false
-# Hide the legal disclaimer
+fancy_echo "Hide the legal disclaimer"
 defaults write org.m0k.transmission WarningLegal -bool false
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
-# Enable highlight hover effect for the grid view of a stack (Dock)
+fancy_echo "Enable highlight hover effect for the grid view of a stack (Dock)"
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 36 pixels
+fancy_echo "Set the icon size of Dock items to 36 pixels"
 defaults write com.apple.dock tilesize -int 36
 
-# Minimize windows into their application’s icon
+fancy_echo "Minimize windows into their application’s icon"
 defaults write com.apple.dock minimize-to-application -bool true
 
 
@@ -609,10 +611,10 @@ defaults write com.apple.dock minimize-to-application -bool true
 # SizeUp.app                                                                  #
 ###############################################################################
 
-# Start SizeUp at login
+fancy_echo "Start SizeUp at login"
 defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
 
-# Don’t show the preferences window on next start
+fancy_echo "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 ###############################################################################
@@ -623,4 +625,5 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
 	"Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
 	"Transmission" "Twitter" "iCal"; do
-	killall "${app}" > /dev/null 2>&1
+	killall "${app}" > /dev/null 2>&1 && echo "${app} killed" || echo "${app} not running"
+done
