@@ -11,6 +11,7 @@ curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bas
 
 2. Install this manually:
   - XCode
+  - Mint Quickview
   - iMovie
   - Garageband
   - Adobe CS6
@@ -21,3 +22,5 @@ curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bas
   - Tex
 
 3. Create "Trello" via Fluid app.
+
+4. Reconfigure Northwestern VPN.
