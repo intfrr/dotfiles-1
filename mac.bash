@@ -618,12 +618,18 @@ fancy_echo "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 ###############################################################################
+# iTerm2.app                                                                  #
+###############################################################################
+
+defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
 	"Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-	"Transmission" "Twitter" "iCal"; do
+	"Transmission" "Twitter" "iCal" "iTerm2"; do
 	killall "${app}" > /dev/null 2>&1 && echo "${app} killed" || echo "${app} not running"
 done
