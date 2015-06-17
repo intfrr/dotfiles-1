@@ -10,14 +10,14 @@ curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bas
 ```
 
 2. Install this manually:
-- XCode
-- iMovie
-- Garageband
-- Adobe CS6
-- Office 2011 (or 2016 Preview)
-- Finale 2014
-- Stata
-- Macaw
-- Tex
+  - XCode
+  - iMovie
+  - Garageband
+  - Adobe CS6
+  - Office 2011 (or 2016 Preview)
+  - Finale 2014
+  - Stata
+  - Macaw
+  - Tex
 
 3. Create "Trello" via Fluid app.
