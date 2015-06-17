@@ -4,12 +4,11 @@ Highly inspired by https://github.com/thoughtbot/laptop
 
 # Setup
 1. Run script
-```
-xcode-select --install
-sudo xcodebuild -license # contrary to https://github.com/thoughtbot/laptop/issues/245#issuecomment-49395269 ?
-curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bash
-```
-
+  ```
+  xcode-select --install
+  sudo xcodebuild -license # contrary to https://github.com/thoughtbot/laptop/issues/245#issuecomment-49395269 ?
+  curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bash
+  ```
 2. Install this manually:
   - XCode
   - Mint Quickview
@@ -21,7 +20,9 @@ curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bas
   - Stata
   - Macaw
   - Tex
-
 3. Create "Trello" via Fluid app.
-
 4. Reconfigure Northwestern VPN.
+5. Install Safari Extensions
+  - https://github.com/Antrikshy/RecoverTabs
+  - https://adblockplus.org
+  - https://getpocket.com/safari/
