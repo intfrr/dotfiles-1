@@ -82,6 +82,7 @@ brew_cask_install_or_upgrade 'caffeine' # prevent computer from going to sleep
 brew_cask_install_or_upgrade 'calibre' # ebook manager
 brew_cask_install_or_upgrade 'xtrafinder' # CMD-X for cut
 brew_cask_install_or_upgrade 'chromecast'
+brew_cask_install_or_upgrade 'fluid'
 
 # [Brew Cask] Development
 brew_cask_install_or_upgrade 'virtualbox' # virtual os / emulators
