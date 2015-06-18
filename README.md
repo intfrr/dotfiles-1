@@ -10,6 +10,7 @@ Highly inspired by https://github.com/thoughtbot/laptop
   curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bash
   ```
 2. Install this manually:
+  - Wunderlist
   - XCode
   - Mint Quickview
   - iMovie
