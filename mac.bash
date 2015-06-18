@@ -365,21 +365,31 @@ brew uninstall --force python
 brew_install_or_upgrade 'pyenv'
 brew_install_or_upgrade 'pyenv-virtualenvwrapper'
 
-python_version="2.7.10"
+python2_version="2.7.10"
+python3_version="3.4.3"
 eval "$(pyenv init -)"
 
-if ! pyenv versions | grep -Fq "$python_version"; then
-  pyenv install -s "$python_version"
+if ! pyenv versions | grep -Fq "$python2_version"; then
+  pyenv install -s "$python2_version"
+  pyenv shell "$python2_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
 fi
 
-pyenv global "$python_version"
-pyenv shell "$python_version"
+if ! pyenv versions | grep -Fq "python3_version"; then
+  pyenv install -s "$python3_version"
+  pyenv shell "$python3_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+fi
 
-pip install --upgrade pip
-pip install virtualenv
-pip install virtualenv-clone
-pip install virtualenvwrapper
-pip install pygments
+pyenv global "$python2_version"
 
 # Additional Python Dependencies
 
