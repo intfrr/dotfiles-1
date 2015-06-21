@@ -24,6 +24,8 @@ curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bas
 3. Create "Trello" via Fluid app.
 4. Reconfigure Northwestern VPN.
 5. Install Safari Extensions
-  - https://github.com/Antrikshy/RecoverTabs
-  - https://adblockplus.org
-  - https://getpocket.com/safari/
+```
+wget https://update.adblockplus.org/latest/adblockplussafari.safariextz
+wget https://s3-us-west-1.amazonaws.com/antrikshyprojects/RecoverTabs.safariextz
+wget http://pocket-extensions.s3.amazonaws.com/safari/Pocket.safariextz
+```
