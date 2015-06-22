@@ -19,7 +19,7 @@ Highly inspired by https://github.com/thoughtbot/laptop
   - iMovie
   - Garageband
   - Adobe CS6
-  - Office 2016 ```wget http://officecdn.microsoft.com/pr/OfficeMac/OfficePreview.pkg```
+  - Office 2016 ```wget http://officecdn.microsoft.com/pr/OfficeMac/OfficePreview.pkg && open OfficePreview.pkg```
   - Finale 2014
   - Stata
   - Macaw
