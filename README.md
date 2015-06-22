@@ -41,3 +41,11 @@ Highly inspired by https://github.com/thoughtbot/laptop
     sudo chown -R `whoami`:admin /usr/local/texlive
     tlmgr install collection-fontsrecommended
     ```
+    
+7. Clean Up
+
+    ```bash
+    rm -f BasicTeX.pkg OfficePreview.pkg adblockplussafari.safariextz RecoverTabs.safariextz Pocket.safariextz
+    ```
+    
+
