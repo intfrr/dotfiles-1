@@ -19,11 +19,10 @@ Highly inspired by https://github.com/thoughtbot/laptop
   - iMovie
   - Garageband
   - Adobe CS6
-  - Office 2011 (or 2016 Preview)
+  - Office 2016 ```wget http://officecdn.microsoft.com/pr/OfficeMac/OfficePreview.pkg```
   - Finale 2014
   - Stata
   - Macaw
-  - Tex
 3. Create "Trello" via Fluid app.
 4. Reconfigure Northwestern VPN.
 5. Install Safari Extensions
