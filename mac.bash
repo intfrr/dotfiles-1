@@ -430,7 +430,7 @@ pip install --upgrade rodeo
 
 pyenv rehash
 
-python -m nltk.downloader all
+python -m nltk.downloader -d ~/nltk_data all
 
 ################
 
