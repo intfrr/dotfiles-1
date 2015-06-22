@@ -25,7 +25,13 @@ curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/mac.bash | bas
 4. Reconfigure Northwestern VPN.
 5. Install Safari Extensions
 ```
-wget https://update.adblockplus.org/latest/adblockplussafari.safariextz
-wget https://s3-us-west-1.amazonaws.com/antrikshyprojects/RecoverTabs.safariextz
-wget http://pocket-extensions.s3.amazonaws.com/safari/Pocket.safariextz
+wget https://update.adblockplus.org/latest/adblockplussafari.safariextz && open adblockplussafari.safariextz
+wget https://s3-us-west-1.amazonaws.com/antrikshyprojects/RecoverTabs.safariextz && open RecoverTabs.safariextz
+wget http://pocket-extensions.s3.amazonaws.com/safari/Pocket.safariextz && open Pocket.safariextz
+```
+6. Install BasicTex
+```
+wget http://tug.org/cgi-bin/mactex-download/BasicTeX.pkg && open BasicTeX.pkg
+sudo chown -R `whoami` /usr/local/texlive
+tlmgr install collection-fontsrecommended
 ```
