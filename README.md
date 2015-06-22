@@ -38,6 +38,6 @@ Highly inspired by https://github.com/thoughtbot/laptop
 
     ```bash
     wget http://tug.org/cgi-bin/mactex-download/BasicTeX.pkg && open BasicTeX.pkg
-    sudo chown -R `whoami` /usr/local/texlive
+    sudo chown -R `whoami`:admin /usr/local/texlive
     tlmgr install collection-fontsrecommended
     ```
