@@ -23,6 +23,7 @@ Highly inspired by https://github.com/thoughtbot/laptop
   - Finale 2014
   - Stata
   - Macaw
+  - Windows 10 ```wget http://iso.esd.microsoft.com/W10IP/07973073D3117B492DAA3497B1BE5F96/Windows10_InsiderPreview_x64_EN-US_10130.iso```
 3. Create "Trello" via Fluid app.
 4. Reconfigure Northwestern VPN.
 5. Install Safari Extensions
