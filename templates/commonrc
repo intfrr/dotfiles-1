@@ -15,6 +15,7 @@ export WORKON_HOME=~/.envs
 # pyenv hack
 # https://github.com/yyuu/pyenv/issues/106
 alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+export NLTK_DATA="~/nltk_data"
 
 # Ruby
 
