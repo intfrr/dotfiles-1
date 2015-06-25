@@ -327,6 +327,8 @@ nvm install "$node_version"
 fancy_echo "Setting $node_version as the global default nodejs..."
 nvm alias default "$node_version"
 
+npm install -g yo generator-angular bower grunt
+
 ################
 
 # Ruby
