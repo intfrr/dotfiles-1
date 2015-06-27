@@ -51,6 +51,7 @@ brew_tap 'homebrew/binary' # closed-source packages with only binaries
 brew_tap 'caskroom/cask' # gui applications
 brew_tap 'caskroom/versions' # multiple versions of existing gui applications
 brew_tap 'caskroom/fonts' # fonts
+brew_tap 'homebrew/services' # brew services command
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 
@@ -128,9 +129,9 @@ brew_cask_install_or_upgrade 'skim' # very nice pdf viewer for note taking
 # brew_install_or_upgrade 'sickbeard'
 # brew_install_or_upgrade 'couchpotatoserver'
 # brew_install_or_upgrade 'headphones'
-# brew_launchctl_restart 'sickbeard'
-# brew_launchctl_restart 'couchpotatoserver'
-# brew_launchctl_restart 'headphones'
+# brew services restart 'sickbeard'
+# brew services restart 'couchpotatoserver'
+# brew services restart 'headphones'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
@@ -148,7 +149,7 @@ brew_cask_install_or_upgrade 'cert-quicklook' # certificates
 
 # Misc
 brew_install_or_upgrade 'jack'
-brew_launchctl_restart 'jack'
+brew services restart 'jack'
 
 # Shells
 brew_install_or_upgrade 'bash'
@@ -236,13 +237,13 @@ brew_install_or_upgrade 'memcached'
 brew_install_or_upgrade 'rabbitmq' # message queue / broker
 brew_install_or_upgrade 'rabbitmq-c' # message queue / broker
 
-brew_launchctl_restart 'mysql'
-brew_launchctl_restart 'postgresql'
-brew_launchctl_restart 'mongodb'
-brew_launchctl_restart 'redis'
-brew_launchctl_restart 'elasticsearch'
-brew_launchctl_restart 'memcached'
-brew_launchctl_restart 'rabbitmq'
+brew services restart 'mysql'
+brew services restart 'postgresql'
+brew services restart 'mongodb'
+brew services restart 'redis'
+brew services restart 'elasticsearch'
+brew services restart 'memcached'
+brew services restart 'rabbitmq'
 
 # Heroku
 brew_install_or_upgrade 'heroku-toolbelt'
