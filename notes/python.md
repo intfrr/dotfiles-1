@@ -38,7 +38,6 @@ python -m nltk.downloader all
 
 # http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
 
-brew install opencv --without-numpy --without-python
+brew install opencv --without-numpy
 #brew uninstall homebrew/python/numpy
-```
 ```
