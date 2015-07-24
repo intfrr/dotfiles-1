@@ -430,6 +430,7 @@ pip install --upgrade requests
 pip install --upgrade pygments
 pip install --upgrade lxml
 pip install --upgrade rodeo
+C_INCLUDE_PATH=/usr/local/include LIBRARY_PATH=/usr/local/lib pip install --upgrade uwsgi
 
 pyenv rehash
 
