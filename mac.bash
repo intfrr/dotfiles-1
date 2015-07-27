@@ -87,6 +87,7 @@ brew_cask_install_or_upgrade 'fluid'
 brew_cask_install_or_upgrade 'goofy' # facebook chat
 
 # [Brew Cask] Development
+brew_cask_install_or_upgrade 'pgadmin3'
 brew_cask_install_or_upgrade 'virtualbox' # virtual os / emulators
 brew_cask_install_or_upgrade 'vagrant' # package virtual envs for development
 brew_cask_install_or_upgrade 'sequel-pro' # mysql gui
