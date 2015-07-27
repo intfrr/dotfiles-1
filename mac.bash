@@ -176,6 +176,7 @@ brew_install_or_upgrade 'md5sha1sum'
 brew_install_or_upgrade 'pigz' # parallel implementation of gzip
 brew_install_or_upgrade 'docker' # containers
 brew_install_or_upgrade 'boot2docker' # script to boot docker on mac os x
+brew_install_or_upgrade 'ssh-copy-id'
 
 # Version Control
 brew_install_or_upgrade 'svn'
