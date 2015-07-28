@@ -422,6 +422,7 @@ if [ $(python -c 'import PyQt4' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; th
   cd ~; rm PyQt-mac-gpl-4.11.4.tar.gz; rm -rf PyQt-mac-gpl-4.11.4
 fi
 
+pip install --upgrade cython
 pip install --upgrade numpy
 pip install --upgrade scipy
 pip install --upgrade scikit-learn
