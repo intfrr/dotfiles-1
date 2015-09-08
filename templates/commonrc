@@ -50,6 +50,8 @@ fi
 
 #########################
 
+setopt histignorespace
+
 # alias grep="/usr/local/bin/grep $GREP_OPTIONS"
 # unset GREP_OPTIONS
 
