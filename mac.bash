@@ -373,6 +373,9 @@ brew_install_or_upgrade 'pyenv-virtualenvwrapper'
 
 python2_version="2.7.10"
 python3_version="3.4.3"
+pypy2_version="pypy-2.6.0"
+pypy3_version="pypy3-2.4.0"
+
 eval "$(pyenv init -)"
 
 if ! pyenv versions | grep -Fq "$python2_version"; then
@@ -385,6 +388,17 @@ if ! pyenv versions | grep -Fq "$python2_version"; then
   pip install pygments
 fi
 
+if ! pyenv versions | grep -Fq "$pypy2_version"; then
+  pyenv install -s "$pypy2_version"
+  pyenv shell "$pypy2_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+  pip install git+https://bitbucket.org/pypy/numpy.git
+fi
+
 if ! pyenv versions | grep -Fq "python3_version"; then
   pyenv install -s "$python3_version"
   pyenv shell "$python3_version"
@@ -395,7 +409,18 @@ if ! pyenv versions | grep -Fq "python3_version"; then
   pip install pygments
 fi
 
-pyenv global "$python2_version"
+if ! pyenv versions | grep -Fq "$pypy3_version"; then
+  pyenv install -s "$pypy3_version"
+  pyenv shell "$pypy3_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+  pip install git+https://bitbucket.org/pypy/numpy.git
+fi
+
+pyenv global "$python3_version"
 
 # Additional Python Dependencies
 
