@@ -23,7 +23,9 @@ Highly inspired by https://github.com/thoughtbot/laptop
   - Finale 2014
   - Stata
   - Macaw
-  - Windows 10 ```wget http://iso.esd.microsoft.com/W10IP/07973073D3117B492DAA3497B1BE5F96/Windows10_InsiderPreview_x64_EN-US_10130.iso```
+  - Pocket
+  - Popcorn Time https://github.com/casidiablo/homebrew-custom/blob/master/Casks/popcorn-time.rb
+  - Windows 10 ```wget http://iso.esd.microsoft.com/W10IP/07973073D3117B492DAA3497B1BE5F96/Windows10_InsiderPreview_x64_EN-US_10130.iso``` Product key: 6P99N-YF42M-TPGBG-9VMJP-YKHCF
 3. Create "Trello" via Fluid app.
 4. Reconfigure Northwestern VPN.
 5. Install Safari Extensions

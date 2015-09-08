@@ -51,6 +51,7 @@ brew_tap 'homebrew/binary' # closed-source packages with only binaries
 brew_tap 'caskroom/cask' # gui applications
 brew_tap 'caskroom/versions' # multiple versions of existing gui applications
 brew_tap 'caskroom/fonts' # fonts
+brew_tap 'homebrew/services' # brew services command
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 
@@ -86,6 +87,7 @@ brew_cask_install_or_upgrade 'fluid'
 brew_cask_install_or_upgrade 'goofy' # facebook chat
 
 # [Brew Cask] Development
+brew_cask_install_or_upgrade 'pgadmin3'
 brew_cask_install_or_upgrade 'virtualbox' # virtual os / emulators
 brew_cask_install_or_upgrade 'vagrant' # package virtual envs for development
 brew_cask_install_or_upgrade 'sequel-pro' # mysql gui
@@ -128,9 +130,9 @@ brew_cask_install_or_upgrade 'skim' # very nice pdf viewer for note taking
 # brew_install_or_upgrade 'sickbeard'
 # brew_install_or_upgrade 'couchpotatoserver'
 # brew_install_or_upgrade 'headphones'
-# brew_launchctl_restart 'sickbeard'
-# brew_launchctl_restart 'couchpotatoserver'
-# brew_launchctl_restart 'headphones'
+# brew services restart 'sickbeard'
+# brew services restart 'couchpotatoserver'
+# brew services restart 'headphones'
 
 # [Brew Cask] Quick Look Plugins
 # https://github.com/sindresorhus/quick-look-plugins
@@ -148,7 +150,7 @@ brew_cask_install_or_upgrade 'cert-quicklook' # certificates
 
 # Misc
 brew_install_or_upgrade 'jack'
-brew_launchctl_restart 'jack'
+brew services restart 'jack'
 
 # Shells
 brew_install_or_upgrade 'bash'
@@ -174,6 +176,7 @@ brew_install_or_upgrade 'md5sha1sum'
 brew_install_or_upgrade 'pigz' # parallel implementation of gzip
 brew_install_or_upgrade 'docker' # containers
 brew_install_or_upgrade 'boot2docker' # script to boot docker on mac os x
+brew_install_or_upgrade 'ssh-copy-id'
 
 # Version Control
 brew_install_or_upgrade 'svn'
@@ -213,7 +216,8 @@ brew_install_or_upgrade 'x264'
 brew_install_or_upgrade 'libspotify'
 
 # Languages, Compilers, and SDKs
-brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
+# TODO: error with php line, debug later
+# brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
 brew_install_or_upgrade 'homebrew/science/r' #'--with-openblas'
 brew_cask_install_or_upgrade 'rstudio' # gui for R
 brew_install_or_upgrade 'go' '--cross-compile-all'
@@ -236,13 +240,13 @@ brew_install_or_upgrade 'memcached'
 brew_install_or_upgrade 'rabbitmq' # message queue / broker
 brew_install_or_upgrade 'rabbitmq-c' # message queue / broker
 
-brew_launchctl_restart 'mysql'
-brew_launchctl_restart 'postgresql'
-brew_launchctl_restart 'mongodb'
-brew_launchctl_restart 'redis'
-brew_launchctl_restart 'elasticsearch'
-brew_launchctl_restart 'memcached'
-brew_launchctl_restart 'rabbitmq'
+brew services restart 'mysql'
+brew services restart 'postgresql'
+brew services restart 'mongodb'
+brew services restart 'redis'
+brew services restart 'elasticsearch'
+brew services restart 'memcached'
+brew services restart 'rabbitmq'
 
 # Heroku
 brew_install_or_upgrade 'heroku-toolbelt'
@@ -328,6 +332,8 @@ nvm install "$node_version"
 fancy_echo "Setting $node_version as the global default nodejs..."
 nvm alias default "$node_version"
 
+npm install -g yo generator-angular bower grunt-cli
+
 ################
 
 # Ruby
@@ -368,6 +374,9 @@ brew_install_or_upgrade 'pyenv-virtualenvwrapper'
 
 python2_version="2.7.10"
 python3_version="3.4.3"
+pypy2_version="pypy-2.6.0"
+pypy3_version="pypy3-2.4.0"
+
 eval "$(pyenv init -)"
 
 if ! pyenv versions | grep -Fq "$python2_version"; then
@@ -380,6 +389,17 @@ if ! pyenv versions | grep -Fq "$python2_version"; then
   pip install pygments
 fi
 
+if ! pyenv versions | grep -Fq "$pypy2_version"; then
+  pyenv install -s "$pypy2_version"
+  pyenv shell "$pypy2_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+  pip install git+https://bitbucket.org/pypy/numpy.git
+fi
+
 if ! pyenv versions | grep -Fq "python3_version"; then
   pyenv install -s "$python3_version"
   pyenv shell "$python3_version"
@@ -390,7 +410,18 @@ if ! pyenv versions | grep -Fq "python3_version"; then
   pip install pygments
 fi
 
-pyenv global "$python2_version"
+if ! pyenv versions | grep -Fq "$pypy3_version"; then
+  pyenv install -s "$pypy3_version"
+  pyenv shell "$pypy3_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+  pip install git+https://bitbucket.org/pypy/numpy.git
+fi
+
+pyenv global "$python3_version"
 
 # Additional Python Dependencies
 
@@ -418,6 +449,7 @@ if [ $(python -c 'import PyQt4' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; th
   cd ~; rm PyQt-mac-gpl-4.11.4.tar.gz; rm -rf PyQt-mac-gpl-4.11.4
 fi
 
+pip install --upgrade cython
 pip install --upgrade numpy
 pip install --upgrade scipy
 pip install --upgrade scikit-learn
@@ -428,6 +460,7 @@ pip install --upgrade requests
 pip install --upgrade pygments
 pip install --upgrade lxml
 pip install --upgrade rodeo
+C_INCLUDE_PATH=/usr/local/include LIBRARY_PATH=/usr/local/lib pip install --upgrade uwsgi
 
 pyenv rehash
 
