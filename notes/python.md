@@ -41,3 +41,15 @@ python -m nltk.downloader all
 brew install opencv --without-numpy
 #brew uninstall homebrew/python/numpy
 ```
+
+pypy
+```
+pyenv install pypy-2.6.0
+pyenv install pypy3-2.4.0
+
+pyenv shell pypy-2.6.0
+
+pip install git+https://bitbucket.org/pypy/numpy.git
+pip install requests lxml cssselect
+pip install flask
+```
