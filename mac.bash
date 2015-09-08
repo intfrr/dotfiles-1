@@ -300,6 +300,7 @@ ln -fs "$(pwd)/templates/gitconfig" ~/.gitconfig
 ln -fs "$(pwd)/templates/gemrc" ~/.gemrc
 ln -fs "$(pwd)/templates/gitignore" ~/.gitignore
 ln -fs "$(pwd)/templates/agignore" ~/.agignore
+ln -fs "$(pwd)/templates/gitignore_global" ~/.gitignore_global
 
 mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
 if [ ! -f "$HOME/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package" ]; then
