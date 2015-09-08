@@ -47,6 +47,10 @@ brew_cask_install_or_upgrade 'tabula'
 
 source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/apps.sh)"
 
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/node.sh)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/ruby.sh)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/python.sh)"
+
 # Misc
 brew_install_or_upgrade 'jack'
 brew services restart 'jack'
@@ -214,12 +218,6 @@ if [ ! -f "$HOME/Library/Application Support/Sublime Text 3/Installed Packages/P
 fi
 
 append_to_zshrc 'source ~/.commonrc'
-
-################
-
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/node.sh)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/ruby.sh)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/python.sh)"
 
 source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/osx.sh)"
 
