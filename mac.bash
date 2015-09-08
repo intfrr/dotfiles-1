@@ -43,6 +43,7 @@ brew_cask_install_or_upgrade 'arduino'
 brew_cask_install_or_upgrade 'java' # jdk
 brew_cask_install_or_upgrade 'weka'
 brew_cask_install_or_upgrade 'xquartz'
+brew_cask_install_or_upgrade 'tabula'
 
 source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/apps.sh)"
 
@@ -53,12 +54,12 @@ brew services restart 'jack'
 # Shells
 brew_install_or_upgrade 'bash'
 brew_install_or_upgrade 'bash-completion'
-brew_install_or_upgrade 'zsh' '--disable-etcdir'
+brew_install_or_upgrade 'zsh' '--without-etcdir'
 
 # Command Line Tools
 brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'tree'
-brew_install_or_upgrade 'vim' '--override-system-vi' '--enable-pythoninterp'
+brew_install_or_upgrade 'vim' '--override-system-vi' '--without-python' # '--enable-pythoninterp'
 brew_install_or_upgrade 'colordiff' # color plain diff output
 brew_install_or_upgrade 'memtester'
 brew_install_or_upgrade 'ngrok' # local tunnel
@@ -79,7 +80,7 @@ brew_install_or_upgrade 'ssh-copy-id'
 # Version Control
 brew_install_or_upgrade 'svn'
 brew_install_or_upgrade 'mercurial'
-brew_install_or_upgrade 'git' '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
+brew_install_or_upgrade 'git' # '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'tig' # text interface git
 brew_install_or_upgrade 'git-flow'
 brew_install_or_upgrade 'gh' # or hub??
