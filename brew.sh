@@ -1,0 +1,29 @@
+if ! command -v brew >/dev/null; then
+  fancy_echo "Installing Homebrew ..."
+    curl -fsS \
+      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+
+    append_to_zshrc '# recommended by brew doctor'
+
+    # shellcheck disable=SC2016
+    append_to_zshrc 'export PATH="/usr/local/bin:$PATH"' 1
+
+    export PATH="/usr/local/bin:$PATH"
+else
+  fancy_echo "Homebrew already installed. Skipping ..."
+fi
+
+fancy_echo "Updating Homebrew formulas ..."
+brew update
+
+brew_tap 'homebrew/dupes' # apps that are all provided b OS X
+brew_tap 'homebrew/versions' # multiple versions of existing packages
+brew_tap 'homebrew/science' # scientific packages
+brew_tap 'homebrew/php' # php related packages
+brew_tap 'homebrew/binary' # closed-source packages with only binaries
+brew_tap 'caskroom/cask' # gui applications
+brew_tap 'caskroom/versions' # multiple versions of existing gui applications
+brew_tap 'caskroom/fonts' # fonts
+brew_tap 'homebrew/services' # brew services command
+
+brew_install_or_upgrade 'caskroom/cask/brew-cask'

@@ -1,0 +1,98 @@
+brew uninstall --force python
+
+brew_install_or_upgrade 'pyenv'
+brew_install_or_upgrade 'pyenv-virtualenvwrapper'
+
+python2_version="2.7.10"
+python3_version="3.4.3"
+pypy2_version="pypy-2.6.0"
+pypy3_version="pypy3-2.4.0"
+
+eval "$(pyenv init -)"
+
+if ! pyenv versions | grep -Fq "$python2_version"; then
+  pyenv install -s "$python2_version"
+  pyenv shell "$python2_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+fi
+
+if ! pyenv versions | grep -Fq "$pypy2_version"; then
+  pyenv install -s "$pypy2_version"
+  pyenv shell "$pypy2_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+  pip install git+https://bitbucket.org/pypy/numpy.git
+fi
+
+if ! pyenv versions | grep -Fq "python3_version"; then
+  pyenv install -s "$python3_version"
+  pyenv shell "$python3_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+fi
+
+if ! pyenv versions | grep -Fq "$pypy3_version"; then
+  pyenv install -s "$pypy3_version"
+  pyenv shell "$pypy3_version"
+  pip install --upgrade pip
+  pip install virtualenv
+  pip install virtualenv-clone
+  pip install virtualenvwrapper
+  pip install pygments
+  pip install git+https://bitbucket.org/pypy/numpy.git
+fi
+
+pyenv global "$python3_version"
+
+# Additional Python Dependencies
+
+# pygame
+brew_install_or_upgrade 'sdl'
+brew_install_or_upgrade 'sdl_image'
+brew_install_or_upgrade 'sdl_mixer'
+brew_install_or_upgrade 'sdl_ttf'
+brew_install_or_upgrade 'portmidi'
+pip install hg+http://bitbucket.org/pygame/pygame#egg=pygame
+
+# sip
+if [ $(python -c 'import sip' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; then
+  cd ~; wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.16.8/sip-4.16.8.tar.gz
+  tar -xvf sip-4.16.8.tar.gz
+  cd sip-4.16.8; python configure.py; make; make install
+  cd ~; rm sip-4.16.8.tar.gz; rm -rf sip-4.16.8
+fi
+
+# pyqt
+if [ $(python -c 'import PyQt4' 2>/dev/null && echo "1" || echo "0") -eq 0 ]; then
+  cd ~; wget http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt-mac-gpl-4.11.4.tar.gz
+  tar -xvf PyQt-mac-gpl-4.11.4.tar.gz
+  cd PyQt-mac-gpl-4.11.4; python configure.py --confirm-license; make; make install
+  cd ~; rm PyQt-mac-gpl-4.11.4.tar.gz; rm -rf PyQt-mac-gpl-4.11.4
+fi
+
+pip install --upgrade cython
+pip install --upgrade numpy
+pip install --upgrade scipy
+pip install --upgrade scikit-learn
+pip install --upgrade nltk
+pip install --upgrade "ipython[notebook]"
+pip install --upgrade matplotlib
+pip install --upgrade requests
+pip install --upgrade pygments
+pip install --upgrade lxml
+pip install --upgrade rodeo
+C_INCLUDE_PATH=/usr/local/include LIBRARY_PATH=/usr/local/lib pip install --upgrade uwsgi
+
+pyenv rehash
+
+python -m nltk.downloader -d ~/nltk_data all
