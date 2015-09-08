@@ -25,7 +25,7 @@ fi
 
 ################
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/brew.bash)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/brew.sh)"
 
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
@@ -44,7 +44,7 @@ brew_cask_install_or_upgrade 'java' # jdk
 brew_cask_install_or_upgrade 'weka'
 brew_cask_install_or_upgrade 'xquartz'
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/apps.bash)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/apps.sh)"
 
 # Misc
 brew_install_or_upgrade 'jack'
@@ -216,11 +216,11 @@ append_to_zshrc 'source ~/.commonrc'
 
 ################
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/node.bash)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/ruby.bash)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/python.bash)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/node.sh)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/ruby.sh)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/python.sh)"
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/osx.bash)"
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/osx.sh)"
 
 ###############################################################################
 # Kill affected applications                                                  #
