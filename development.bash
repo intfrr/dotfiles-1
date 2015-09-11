@@ -42,8 +42,7 @@ brew_install_or_upgrade 'x264'
 brew_install_or_upgrade 'libspotify'
 
 # Languages, Compilers, and SDKs
-# TODO: error with php line, debug later
-# brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
+brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
 brew_install_or_upgrade 'homebrew/science/r' #'--with-openblas'
 brew_cask_install_or_upgrade 'rstudio' # gui for R
 brew_install_or_upgrade 'go' '--cross-compile-all'
