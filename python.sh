@@ -31,7 +31,7 @@ if ! pyenv versions | grep -Fq "$pypy2_version"; then
   pip install git+https://bitbucket.org/pypy/numpy.git
 fi
 
-if ! pyenv versions | grep -Fq "python3_version"; then
+if ! pyenv versions | grep -Fq "$python3_version"; then
   pyenv install -s "$python3_version"
   pyenv shell "$python3_version"
   pip install --upgrade pip
