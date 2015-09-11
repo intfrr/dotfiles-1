@@ -1,3 +1,4 @@
+# Install Homebrew
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
     curl -fsS \
@@ -16,6 +17,7 @@ fi
 fancy_echo "Updating Homebrew formulas ..."
 brew update
 
+# Install Taps
 brew_tap 'homebrew/dupes' # apps that are all provided b OS X
 brew_tap 'homebrew/versions' # multiple versions of existing packages
 brew_tap 'homebrew/science' # scientific packages
@@ -29,7 +31,6 @@ brew_tap 'homebrew/services' # brew services command
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 
 # Install Essential Brew and Brew Casks
-
 brew_cask_install_or_upgrade 'java'
 brew_cask_install_or_upgrade 'xquartz'
 brew_install_or_upgrade 'openssl'
