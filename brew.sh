@@ -27,3 +27,9 @@ brew_tap 'caskroom/fonts' # fonts
 brew_tap 'homebrew/services' # brew services command
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
+
+# Install Essential Brew and Brew Casks
+
+brew_cask_install_or_upgrade 'java'
+brew_cask_install_or_upgrade 'xquartz'
+brew_install_or_upgrade 'openssl'
