@@ -16,3 +16,5 @@ fi
 yo --version || npm install -g yo generator-angular
 bower --version || npm install -g bower
 grunt --version || npm install -g grunt-cli
+gulp --version || npm install -g gulp
+browserify --version || npm install -g browserify
