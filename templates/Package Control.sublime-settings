@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -12,6 +13,7 @@
 		"HTML Underscore Syntax",
 		"Indent XML",
 		"IntelliDocs",
+		"Jade",
 		"JSON Reindent",
 		"LaTeXTools",
 		"Markdown Extended",
