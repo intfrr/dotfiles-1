@@ -2,7 +2,7 @@ brew uninstall --force node
 
 brew_install_or_upgrade 'nvm'
 
-node_version="0.12.4"
+node_version="0.12.7"
 mkdir -p "$HOME/.nvm"
 cp "$(brew --prefix nvm)/nvm-exec" "$HOME/.nvm/"
 source "$(brew --prefix nvm)/nvm.sh"
