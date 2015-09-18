@@ -1,6 +1,6 @@
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/node.sh)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/ruby.sh)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/python.sh)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/node)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/ruby)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/python)"
 
 # Command Line Tools
 brew_install_or_upgrade 'the_silver_searcher'
@@ -77,4 +77,4 @@ brew_install_or_upgrade 'heroku-toolbelt'
 heroku plugins:install https://github.com/heroku/heroku-repo.git
 heroku plugins:install git://github.com/ddollar/heroku-config.git
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/databases.sh)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/databases)"

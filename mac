@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/functions)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/functions)"
 
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
@@ -11,8 +11,8 @@ set -e
 
 cd ~
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/brew)"
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/apps)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/brew)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/apps)"
 
 fancy_echo "Brew Cleanup, Prune"
 brew cleanup
@@ -35,7 +35,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   append_to_zshrc 'autoload -U compinit && compinit'
 fi
 
-SHELLS_FILE=$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/templates/shells)
+SHELLS_FILE=$(curl -s http://aljohri.com/dotfiles/shells)
 
 if [ "x$SHELLS_FILE" != "x$(cat /etc/shells)" ]; then
   fancy_echo "Copy custom /etc/paths to allow for homebrew installed shells"
@@ -82,7 +82,7 @@ fi
 
 append_to_zshrc 'source ~/.commonrc'
 
-source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/AlJohri/dotfiles/master/osx)"
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/osx)"
 
 ###############################################################################
 # Kill affected applications                                                  #
