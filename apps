@@ -4,8 +4,8 @@ if ! type brew_install_or_upgrade 2>/dev/null; then
 fi
 
 # if no functions, grab functions
-if ! $(type brew_install_or_upgrade 2>/dev/null); then
-	source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/functions)"
+if ! command -v brew >/dev/null; then
+	source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/brew)"
 fi
 
 # [Brew Cask] Essential Apps
