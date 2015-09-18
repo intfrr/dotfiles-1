@@ -1,3 +1,5 @@
+#!/bin/bash
+
 brew uninstall --force ruby
 
 brew_install_or_upgrade 'rbenv'

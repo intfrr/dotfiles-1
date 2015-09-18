@@ -1,3 +1,15 @@
+#!/bin/bash
+
+# if no brew, install brew
+if ! command -v brew >/dev/null; then
+	source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/brew)"
+fi
+
+# if no functions, grab functions
+if ! $(type brew_install_or_upgrade 2>/dev/null); then
+	source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/functions)"
+fi
+
 # [Brew Cask] Essential Apps
 brew_cask_install_or_upgrade 'google-chrome-canary' # bleeding edge daily updates
 brew_cask_install_or_upgrade 'google-chrome-dev' # more stable than canary

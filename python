@@ -1,3 +1,5 @@
+#!/bin/bash
+
 brew uninstall --force python
 
 brew_install_or_upgrade 'pyenv'

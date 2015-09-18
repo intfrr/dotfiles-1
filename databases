@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Databases and Document Stores
 brew_install_or_upgrade 'mysql' # '--enable-memcached' https://github.com/Homebrew/homebrew/issues/33448
 brew_install_or_upgrade 'postgresql' '--with-python' # sql database
