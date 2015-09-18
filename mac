@@ -76,12 +76,15 @@ source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/osx)"
 # Kill affected applications                                                  #
 ###############################################################################
 
-# remove iTerm2 from killed applications
 # "iTerm2"
+# "Google Chrome"
+# "Google Chrome Canary"
+# "Safari"
+# "Opera"
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-	"Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+	"Dock" "Finder" "Mail" "Messages" \
+	"SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
 	"Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1 && echo "${app} killed" || echo "${app} not running"
 done
