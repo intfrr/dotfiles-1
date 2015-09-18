@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if ! $(type brew_install_or_upgrade 2>/dev/null); then
+	source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/functions)"
+fi
+
 brew uninstall --force ruby
 
 brew_install_or_upgrade 'rbenv'

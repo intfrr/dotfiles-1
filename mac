@@ -4,6 +4,8 @@ source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/functions)"
 source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/brew)"
 source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/apps)"
 
+source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/development)"
+
 ################
 
 # zsh + ohmyzsh
