@@ -77,4 +77,16 @@ brew_install_or_upgrade 'heroku-toolbelt'
 heroku plugins:install https://github.com/heroku/heroku-repo.git
 heroku plugins:install git://github.com/ddollar/heroku-config.git
 
+# [Brew Cask] Development
+brew_cask_install_or_upgrade 'pgadmin3'
+brew_cask_install_or_upgrade 'virtualbox' # virtual os / emulators
+brew_cask_install_or_upgrade 'vagrant' # package virtual envs for development
+brew_cask_install_or_upgrade 'sequel-pro' # mysql gui
+brew_cask_install_or_upgrade 'google-refine' # dedupe datasets
+brew_cask_install_or_upgrade 'macfusion' # use sublime via ssh (sshfs)
+brew_cask_install_or_upgrade 'arduino'
+brew_cask_install_or_upgrade 'java'
+brew_cask_install_or_upgrade 'weka'
+brew_cask_install_or_upgrade 'tabula'
+
 source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/databases)"

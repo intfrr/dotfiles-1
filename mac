@@ -1,22 +1,13 @@
 #!/bin/bash
 
 source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/functions)"
-
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
-
-fancy_echo "Get sudo access once for the rest of the script"
-sudo -v
-
 set -e
 
 cd ~
 
 source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/brew)"
 source /dev/stdin  <<< "$(curl -s http://aljohri.com/dotfiles/apps)"
-
-fancy_echo "Brew Cleanup, Prune"
-brew cleanup
-brew prune
 
 ################
 
