@@ -48,25 +48,25 @@ brew_install_or_upgrade 'x264'
 brew_install_or_upgrade 'libspotify'
 
 # Languages, Compilers, and SDKs
-# brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
+brew_install_or_upgrade 'gcc'
 brew_install_or_upgrade 'homebrew/science/r' #'--with-openblas'
 brew_cask_install_or_upgrade 'rstudio' # gui for R
-# brew_install_or_upgrade 'go' '--cross-compile-all'
-# brew_install_or_upgrade 'ghc'
-# brew_install_or_upgrade 'lua' '--with-completion'
-# brew_install_or_upgrade 'gcc' '--with-all-languages'
-brew_install_or_upgrade 'homebrew/dupes/apple-gcc42'
 brew_install_or_upgrade 'android-sdk'
 brew_cask_install_or_upgrade 'android-studio' # gui for android development
 
+# brew_install_or_upgrade 'homebrew/php/php55' '--with-gmp' '--with-postgresql' '--with-phpdbg' '--with-homebrew-openssl' '--with-homebrew-libxslt' '--with-homebrew-curl' '--without-snmp' # php55-xdebug
+# brew_install_or_upgrade 'go' '--cross-compile-all'
+# brew_install_or_upgrade 'ghc'
+# brew_install_or_upgrade 'lua' '--with-completion'
+
 # Version Control
-brew_install_or_upgrade 'svn'
-brew_install_or_upgrade 'mercurial'
 brew_install_or_upgrade 'git' # '--with-pcre' '--with-brewed-curl' '--with-brewed-openssl' '--with-brewed-svn' '--with-gettext'
 brew_install_or_upgrade 'tig' # text interface git
-brew_install_or_upgrade 'git-flow'
 brew_install_or_upgrade 'hub' # Since v2.2.0, gh has been merged into hub.
+brew_install_or_upgrade 'git-flow'
 brew_cask_install_or_upgrade 'sourcetree'
+brew_install_or_upgrade 'svn'
+brew_install_or_upgrade 'mercurial'
 
 # Homebrew Dupes and GNU Utils
 # (temporarly removed to determine which are necessary)
